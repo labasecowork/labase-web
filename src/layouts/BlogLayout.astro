@@ -1,0 +1,35 @@
+---
+import "@fontsource-variable/playfair-display";
+import Layout from "./Layoutpanel.astro";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <header class="mb-8">
+    <nav class="flex justify-between items-center py-4">
+      <a
+        href="/"
+        class="text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+      >
+        Blog Astro
+      </a>
+      <div class="flex gap-4">
+        <a href="/" class="text-sm hover:text-primary transition-colors"
+          >Inicio</a
+        >
+        <a href="/blogs" class="text-sm hover:text-primary transition-colors"
+          >Blogs</a
+        >
+      </div>
+    </nav>
+  </header>
+  <div class="mx-auto max-w-4xl">
+    <slot />
+  </div>
+</Layout>

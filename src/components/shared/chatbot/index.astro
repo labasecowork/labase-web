@@ -1,0 +1,45 @@
+---
+import Chatbot from "./index.jsx";
+
+function getQuestions() {
+  const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+  for (let i = numbers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [numbers[i], numbers[j]] = [numbers[j], numbers[i]];
+  }
+
+  const randomNumbers = numbers.slice(0, 3);
+  const questions = [
+    "¿Tienen internet?",
+    "¿Puedo reservar por día?",
+    "¿Tienen salas privadas?",
+    "¿Atienden fines de semana?",
+    "¿Puedo llevar invitados?",
+    "¿Qué incluye la membresía?",
+    "¿Puedo hacer llamadas?",
+    "¿Hay espacio para equipos?",
+    "¿Tienen estacionamiento?",
+    "¿Se puede comer en el lugar?",
+  ];
+
+  return [
+    questions[randomNumbers[0]],
+    questions[randomNumbers[1]],
+    questions[randomNumbers[2]],
+  ];
+}
+
+const props = {
+  title: "Camila por aquí 👋 \n¿Buscas un espacio o tienes dudas?",
+  name: "Coordinadora Camila",
+  you: "Tú",
+  questions: {
+    question1: getQuestions()[0],
+    question2: getQuestions()[1],
+    question3: getQuestions()[2],
+  },
+};
+---
+
+<Chatbot props={props} client:only="react" />

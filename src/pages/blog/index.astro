@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/pages/shared/header/index.jsx";
+import Footer from "../../components/pages/shared/footer/index.astro";
+import HeroSection from "../../components/pages/shared/hero-section/index.astro";
+import RecentPosts from "../../components/pages/blog/RecenPost.astro";
+import CtaSection from "../../components/pages/shared/cta-section/index.astro";
+import { blogMeta } from "@/config/meta";
+---
+
+<Layout
+  title={blogMeta.title}
+  description={blogMeta.description}
+  keywords={blogMeta.keywords}
+  canonical={blogMeta.canonical}
+  image={blogMeta.image}
+  type={blogMeta.type}
+  robots={blogMeta.robots}
+  structuredData={blogMeta.structuredData}
+>
+  <HeroSection
+    title="HECHA UN VISTAZO A NUESTRO BLOG"
+    tag="BLOG"
+    image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&q=80"
+    button="CONTACTANOS"
+  />
+  <RecentPosts />
+  <CtaSection />
+</Layout>

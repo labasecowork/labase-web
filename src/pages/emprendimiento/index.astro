@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroSection from "../../components/pages/emprendimiento/hero-section/index.astro";
+import StatsSection from "../../components/pages/emprendimiento/stats-section/index.jsx";
+import OurModelSection from "../../components/pages/emprendimiento/our-model-section/index.astro";
+import QASection from "../../components/pages/shared/qa-section/index.astro";
+import CasosExitoSection from "../../components/pages/emprendimiento/cases-exit/index.astro";
+import CTASection from "../../components/pages/shared/cta-section/index.astro";
+import PreIncubationSection from "@/components/pages/emprendimiento/pre-incubation-section/index.astro";
+import IncubationSection from "@/components/pages/emprendimiento/incubation-section/index.astro";
+import AccelerationSection from "@/components/pages/emprendimiento/acceleration-section/index.astro";
+import PhasesSection from "@/components/pages/shared/phrase-section/index.astro";
+import { emprendimientoMeta } from "@/config/meta";
+
+const faqs = [
+  {
+    question: "✦ ¿Cuál es el enfoque principal de la fase de PLANIFICAR?",
+    answer:
+      "El enfoque principal es establecer una estrategia clara antes de entrar en acción, lo que incluye el reconocimiento del terreno (definir la misión y su relevancia), el análisis táctico (evaluar tendencias y equipo), y el plan de operaciones (establecer cómo el negocio generará valor y enfrentará la competencia).",
+  },
+  {
+    question: "✦ ¿Para quién está diseñado el modelo de apoyo que ofrecen?",
+    answer:
+      "Nuestro modelo está diseñado para quienes quieren transformar su idea en un negocio exitoso, necesitan ayuda para encontrar un equipo y conseguir inversión, aún no tienen un MVP y requieren apoyo para desarrollarlo, o buscan un equipo profesional experto en planificación, diseño, desarrollo o marketing.",
+  },
+  {
+    question: "✦ ¿Qué tipo de apoyo se ofrece si aún no se tiene un MVP?",
+    answer:
+      "Si aún no tienes un MVP y te hace falta el apoyo de personas que te complementen, como socios, mentores o especialistas, te ayudamos a desarrollar tu primer producto y llevarlo al mercado.",
+  },
+  {
+    question: "✦ ¿Cuál es el enfoque de la fase DESPLEGAR?",
+    answer:
+      "El enfoque de la fase DESPLEGAR (INCUBACIÓN) es poner en marcha el plan y validar en el terreno, lo que implica crear y lanzar un Producto Mínimo Viable (MVP), desarrollar el plan de negocio completo y hacer ajustes en el campo basados en la retroalimentación.",
+  },
+  {
+    question: "✦ ¿Cuál es la meta de la fase de DESPLEGAR?",
+    answer:
+      "Nuestra meta en la fase de DESPLEGAR (INCUBACIÓN) es validar y ajustar el modelo de negocio mientras logras tus primeras 'victorias' en el mercado.",
+  },
+  {
+    question: "✦ ¿Qué es una incubadora de empresas?",
+    answer:
+      "Una incubadora de negocios es un espacio donde startups y emprendedores reciben apoyo clave para crecer más rápido. Ofrece asesoría, formación, espacios flexibles y acceso a una red de contactos, todo en un entorno colaborativo ideal para impulsar su éxito.",
+  },
+  {
+    question: "✦ ¿Quiénes pueden acceder a una incubadora de empresas? ",
+    answer:
+      "Generalmente, emprendedores, startups o negocios en etapas iniciales que buscan apoyo para desarrollar su idea de negocio o acelerar su crecimiento pueden acceder a una incubadora.",
+  },
+];
+---
+
+<Layout
+  title={emprendimientoMeta.title}
+  description={emprendimientoMeta.description}
+  keywords={emprendimientoMeta.keywords}
+  canonical={emprendimientoMeta.canonical}
+  image={emprendimientoMeta.image}
+  type={emprendimientoMeta.type}
+  robots={emprendimientoMeta.robots}
+  structuredData={emprendimientoMeta.structuredData}
+>
+  <HeroSection />
+  <OurModelSection />
+  <StatsSection client:only="react" />
+  <PreIncubationSection />
+  <IncubationSection />
+  <PhasesSection />
+  <AccelerationSection />
+  <CasosExitoSection />
+  <QASection faqs={faqs} />
+</Layout>

@@ -1,0 +1,103 @@
+---
+import SpacesPriceSection from "./index.jsx";
+
+const properties = [
+  {
+    id: 1,
+    imageUrl: "/images/espacios/el_hangar/14.webp",
+    description:
+      "El núcleo creativo donde los proyectos despegan con potencia. Aquí se construyen ideas con alas y se lanzan misiones que apuntan alto. No es un espacio: es una pista de despegue.",
+    title: "El Hangar",
+    capacity: 24,
+    environment: "Colaborativo",
+  },
+  {
+    id: 2,
+    imageUrl: "/images/espacios/base_de_mando/12.webp",
+    description:
+      "Centro de comando para líderes que trazan estrategias y dirigen escuadrones de innovación. Aquí no se improvisa: se ejecuta con visión, orden y precisión quirúrgica.",
+    title: "Base de Mando",
+    capacity: 20,
+    environment: "Colaborativo",
+  },
+  {
+    id: 3,
+    imageUrl: "/images/espacios/base_operativa/1.webp",
+    description:
+      "Zona de ejecución donde la acción manda. Cada mesa es un puesto de batalla, cada teclado un detonador. Perfecto para quienes convierten tareas en misiones cumplidas.",
+    title: "Base Operativa",
+    capacity: 12,
+    environment: "Colaborativo",
+  },
+  {
+    id: 4,
+    imageUrl: "/images/espacios/bunkers/13.webp",
+    description:
+      "Refugios blindados para trabajo de alta concentración. Cierra la puerta, desconéctate del ruido y enfoca todo tu poder mental en ejecutar con precisión tus objetivos clave.",
+    title: "Los Bunkers",
+    capacity: 6,
+    environment: "Privado",
+  },
+  {
+    id: 5,
+    imageUrl: "/images/espacios/la_brigada/6.webp",
+    description:
+      "Zona táctica diseñada para escuadrones creativos. Comparte ideas, choca mentes y construye con tu equipo una ofensiva de innovación sincronizada y sin cuellos de botella.",
+    title: "La Brigada",
+    capacity: 4,
+    environment: "Colaborativo",
+  },
+  {
+    id: 6,
+    imageUrl: "/images/espacios/sala_de_recepcion/8.webp",
+    description:
+      "Tu primer punto de contacto con la base. Aquí empieza tu misión: información precisa, apoyo táctico y la bienvenida que todo operador necesita para desplegar su día con éxito.",
+    title: "Recepciones",
+    capacity: 10,
+    environment: "Público",
+  },
+  {
+    id: 7,
+    imageUrl: "/images/espacios/unidades/9.webp",
+    description:
+      "Espacios autónomos listos para operar con independencia total. Perfecto para equipos ágiles o misiones individuales que requieren enfoque, recursos y zona libre de fricción.",
+    title: "Unidades",
+    capacity: 1,
+    environment: "Privado",
+  },
+  {
+    id: 8,
+    imageUrl: "/images/espacios/arsenal/14.webp",
+    description:
+      "Donde se almacenan y comparten recursos valiosos: impresoras, herramientas, conocimiento. Equípate como un pro y sal al campo con todo lo necesario para ejecutar sin excusas.",
+    title: "El Arsenal",
+    capacity: 6,
+    environment: "Público",
+  },
+  {
+    id: 9,
+    imageUrl: "/images/espacios/phone_booth/2.webp",
+    description:
+      "Cabinas de comunicación estratégica. Entra, aísla el ruido del campo, toma llamadas clave sin distracciones y vuelve al combate con la mente clara y el mensaje entregado.",
+    title: "Phoneboots",
+    capacity: 2,
+    environment: "Privado",
+  },
+  {
+    id: 10,
+    imageUrl: "/images/espacios/reserva/8.webp",
+    description:
+      "Asegura tu puesto antes de la batalla. Aquí programas, coordinas y planificas tu estancia con precisión militar. Porque el éxito también depende de una logística impecable.",
+    title: "Reservas",
+    capacity: 4,
+    environment: "Público",
+  },
+];
+---
+
+<SpacesPriceSection
+  client:load
+  title="SOBRE PRECIOS"
+  subtitle="INFORMACIÓN"
+  properties={properties}
+/>

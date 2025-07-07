@@ -1,0 +1,90 @@
+---
+/**
+ * Página unificada de edición de blogs
+ * Maneja tanto la creación como la edición de blogs con un único componente
+ */
+
+import Layout from "../../../layouts/Layout.astro";
+import TipTapEditor from "@/components/shared/text_rich/TipTapEditor";
+import { blogService } from "@/services/blogService";
+import { authService } from "@/services/authService";
+
+// Verificar autenticación
+const isAuthenticated = await authService.isAuthenticated();
+if (!isAuthenticated) {
+  return Astro.redirect("/login/");
+}
+
+// Obtener el ID del blog de la URL
+const { id } = Astro.params;
+let blog = null;
+const isNewBlog = id === "new";
+
+// Si no es un nuevo blog, cargar el blog existente
+if (!isNewBlog) {
+  try {
+    // Asegurarse de que id sea un string antes de convertirlo a número
+    blog = await blogService.getById(parseInt(id || "0"));
+
+    // Redireccionar a 404 si no se encuentra el blog
+    if (!blog) {
+      return Astro.redirect("/404");
+    }
+  } catch (error) {
+    console.error("Error al cargar el blog:", error);
+    return Astro.redirect("/admin");
+  }
+}
+---
+
+<Layout
+  title={id === "new" ? "Crear nuevo blog" : `Editar blog: ${blog?.title}`}
+  headerTransparent={false}
+>
+  <div class="container mx-auto px-4 py-8 mt-32 max-w-7xl mb-32">
+    <div class="mb-8">
+      <a
+        href="/admin"
+        class="px-4 py-4 rounded-full bg-stone-100 hover:bg-stone-200 transition-all block w-fit"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-4"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"></path>
+        </svg>
+      </a>
+      <h1 class="text-3xl font-bold font-secondary mt-12">
+        {
+          id === "new"
+            ? "Crear nuevo artículo"
+            : `Editar artículo: ${blog?.title}`
+        }
+      </h1>
+    </div>
+
+    <div class="w-full">
+      {
+        id === "new" ? (
+          <TipTapEditor client:load />
+        ) : (
+          <TipTapEditor
+            client:load
+            initialContent={blog?.contenido || ""}
+            blogId={blog?.id}
+            initialTitle={blog?.title || ""}
+            initialAuthor={blog?.author || ""}
+            initialFeaturedImage={blog?.["imagen destacada"] || ""}
+          />
+        )
+      }
+    </div>
+  </div>
+</Layout>

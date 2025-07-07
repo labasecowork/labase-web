@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HeroSection from "../../components/pages/shared/hero-section/index.astro";
+import ContactFormSection from "../../components/pages/contactanos/contact-form-section/index.astro";
+import MapSection from "../../components/pages/contactanos/map-section/index.astro";
+import TitleSection from "../../components/pages/shared/title-section/index.astro";
+import { contactanosMeta } from "@/config/meta";
+---
+
+<Layout
+  title={contactanosMeta.title}
+  description={contactanosMeta.description}
+  keywords={contactanosMeta.keywords}
+  canonical={contactanosMeta.canonical}
+  image={contactanosMeta.image}
+  type={contactanosMeta.type}
+  robots={contactanosMeta.robots}
+  structuredData={contactanosMeta.structuredData}
+>
+  <HeroSection
+    title="Contáctanos"
+    tag="Hablemos de tu proyecto"
+    image="/public/images/espacios/sala_de_recepcion/8.webp"
+    button="AGENDAR UNA REUNIÓN"
+  />
+  <ContactFormSection />
+
+  <TitleSection
+    tag="Encuéntranos"
+    title="Encuentra nuestras ubicaciones"
+    description="Descubre dónde estamos y visita nuestros espacios diseñados para impulsar tu productividad. Conoce nuestras sedes, sus beneficios y cómo acceder a ellas fácilmente."
+  />
+
+  <MapSection />
+</Layout>

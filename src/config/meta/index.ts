@@ -1,0 +1,12 @@
+export { indexMeta } from "./index/index";
+export { nosotrosMeta } from "./nosotros/index";
+export { espaciosMeta } from "./espacios/index";
+export { contactanosMeta } from "./contactanos/index";
+export { ingresarMeta } from "./ingresar/index";
+export { emprendimientoMeta } from "./emprendimiento/index";
+export { mentoriaMeta } from "./mentoria/index";
+export { testimoniosMeta } from "./testimonios/index";
+export { blogMeta } from "./blog/index";
+export { terminosMeta } from "./terminos/index";
+export { politicasMeta } from "./politicas/index";
+export { notFoundMeta } from "./404/index";

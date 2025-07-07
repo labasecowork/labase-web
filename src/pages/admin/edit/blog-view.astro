@@ -1,0 +1,199 @@
+---
+import BlogLayout from "../../../layouts/BlogLayout.astro";
+
+// Obtener los parámetros de la URL para mostrar el blog
+const title = Astro.url.searchParams.get('title');
+const content = Astro.url.searchParams.get('content');
+const author = Astro.url.searchParams.get('author');
+const image = Astro.url.searchParams.get('image');
+
+// Redirigir a la página principal si faltan datos esenciales
+if (!title || !content) {
+  return Astro.redirect('/');
+}
+
+// Formatear la fecha actual en formato local en español
+const formattedDate = new Date().toLocaleDateString('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<!-- Vista previa del blog usando el layout general del blog -->
+<BlogLayout title={title} description={content.substring(0, 160)}>
+  <article class="prose prose-lg dark:prose-invert max-w-none">
+    <!-- Encabezado del artículo -->
+    <header class="mb-8 text-center">
+      <h1 class="text-4xl font-bold mb-4">{title}</h1>
+      
+      <!-- Mostrar autor y fecha si están disponibles -->
+      <div class="flex items-center justify-center gap-2 text-muted-foreground mb-6">
+        {author && <span>Por {author}</span>}
+        <span class="text-muted-foreground">{formattedDate}</span>
+      </div>
+      
+      <!-- Mostrar imagen destacada si se proporciona -->
+      {image && (
+        <div class="aspect-video w-full max-h-[500px] overflow-hidden rounded-lg mb-8">
+          <img
+            src={image}
+            alt={title || "Blog image"}
+            class="h-full w-full object-cover"
+          />
+        </div>
+      )}
+    </header>
+
+    <!-- Contenido del blog en HTML dinámico -->
+    <div class="blog-content" set:html={content} />
+    
+    <!-- Pie con botones para guardar o cerrar la vista previa -->
+    <div class="flex justify-between items-center mt-12 pt-8 border-t">
+      <p class="text-sm text-muted-foreground">Esta es una vista previa. Los cambios no se guardarán hasta que presiones "Guardar".</p>
+      <div class="flex gap-3">
+        <button
+          id="saveButton"
+          class="inline-flex h-10 items-center justify-center rounded-md bg-green-600 px-4 text-sm font-medium text-white shadow transition-colors hover:bg-green-700"
+        >
+          Guardar Cambios
+        </button>
+        <button
+          id="closePreview"
+          class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+        >
+          Cerrar Vista Previa
+        </button>
+      </div>
+    </div>
+  </article>
+</BlogLayout>
+
+<!-- Script para manejar interacciones del usuario -->
+<script>
+  // Obtener parámetros desde la URL
+  const params = new URLSearchParams(window.location.search);
+  const title = params.get('title');
+  const content = params.get('content');
+  const author = params.get('author');
+  const image = params.get('image');
+  const blogId = params.get('id');
+
+  // Botón para cerrar la vista previa y volver a la página anterior
+  document.getElementById('closePreview')?.addEventListener('click', () => {
+    window.history.back();
+  });
+
+  // Botón para guardar cambios del blog (crear o actualizar)
+  document.getElementById('saveButton')?.addEventListener('click', async () => {
+    try {
+      const endpoint = blogId ? '/api/blogs/update' : '/api/blogs/create';
+      const blogData = {
+        id: blogId ? parseInt(blogId) : undefined,
+        title,
+        contenido: content,
+        publicado: true,
+        author,
+        'imagen destacada': image
+      };
+
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(blogData)
+      });
+
+      const result = await response.json();
+
+      // Redireccionar al panel de admin si se guarda correctamente
+      if (result.success) {
+        window.location.href = '/admin?updated=true';
+      } else {
+        throw new Error(result.error || 'Error al guardar el blog');
+      }
+    } catch (error: unknown) {
+      console.error('Error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+      alert('Error al guardar el blog: ' + errorMessage);
+    }
+  });
+</script>
+
+<!-- Estilos globales para el contenido enriquecido del blog -->
+<style is:global>
+  .blog-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .blog-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .blog-content p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+  }
+  
+  .blog-content ul, .blog-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-content ul {
+    list-style-type: disc;
+  }
+  
+  .blog-content ol {
+    list-style-type: decimal;
+  }
+  
+  .blog-content a {
+    color: hsl(var(--primary));
+    text-decoration: underline;
+  }
+  
+  .blog-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content blockquote {
+    border-left: 4px solid hsl(var(--primary));
+    padding-left: 1rem;
+    margin-left: 0;
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content pre {
+    background-color: hsl(var(--muted));
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  
+  .blog-content code {
+    font-family: monospace;
+    background-color: hsl(var(--muted));
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+  }
+</style>

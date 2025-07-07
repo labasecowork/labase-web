@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HeroSection from "../components/pages/home/hero-section/index.astro";
+import StatsSection from "../components/pages/shared/stats-section/index.astro";
+import CtaSection from "../components/pages/shared/cta-section/index.astro";
+import TitleSection from "../components/pages/shared/title-section/index.astro";
+import Testimonials from "../components/pages/shared/testimonials-section/index.astro";
+import BenefitsSection from "../components/pages/shared/benefits-section/index.astro";
+import SpacesSection from "../components/pages/shared/spaces-section/index.jsx";
+
+import { indexMeta } from "@/config/meta";
+---
+
+<Layout
+  title={indexMeta.title}
+  description={indexMeta.description}
+  keywords={indexMeta.keywords}
+  canonical={indexMeta.canonical}
+  image={indexMeta.image}
+  type={indexMeta.type}
+  robots={indexMeta.robots}
+  structuredData={indexMeta.structuredData}
+>
+  <HeroSection />
+  <TitleSection
+    tag="Sobre nosotros"
+    title="Tu espacio ideal de trabajo"
+    description="Te ofrecemos espacios modernos, funcionales y diseñados para potenciar todas tus actividades. Además, somos más que un coworking: somos una incubadora de empresas. Te brindamos la infraestructura, el conocimiento y el acompañamiento personalizado que necesitas para transformar tus ideas en negocios exitosos."
+  />
+  <SpacesSection client:load />
+  <BenefitsSection />
+  <StatsSection />
+  <TitleSection
+    tag="Contáctanos"
+    description="Mantente actualizado con las últimas novedades locales y todo lo relacionado con el mundo del coworking. Desde consejos de expertos y lo más destacado de la comunidad, hasta eventos exclusivos y espacios innovadores para tu próximo proyecto."
+    title="Conéctate con nosotros"
+  />
+  <Testimonials />
+  <CtaSection image="/images/espacios/phone_booth/6.webp" />
+</Layout>

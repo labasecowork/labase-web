@@ -55,7 +55,7 @@ const HighlightButton: React.FC<HighlightButtonProps> = ({
       type="button"
       className={combineClassNames(
         "w-6 h-6  border transition-all hover:scale-110",
-        { "ring-1 ring-offset-1 ring-blue-500": active }
+        { "ring-1 ring-offset-1 ring-blue-500": active },
       )}
       style={{ backgroundColor: color }}
       onClick={() => onClick(color)}
@@ -136,7 +136,7 @@ const HighlightMenu: React.FC<HighlightMenuProps> = ({ editor }) => {
           "editor-toolbar-btn size-10 flex items-center justify-center hover:bg-stone-100 transition-all ",
           {
             active: editor.isActive("highlight"),
-          }
+          },
         )}
         title="Highlight Text"
         onClick={togglePopover}
@@ -148,7 +148,7 @@ const HighlightMenu: React.FC<HighlightMenuProps> = ({ editor }) => {
       {isOpen && (
         <div
           ref={popoverRef}
-          className="absolute top-full mt-1 left-0 z-50 w-64  shadow-lg bg-white border py-2"
+          className="absolute top-full mt-1 left-0 z-40 w-64  shadow-lg bg-white border py-2"
         >
           {/* Tabs para cambiar entre paleta y selector personalizado */}
           <div className="flex gap-2 mb-2 border-b pb-2 px-2">
@@ -157,7 +157,7 @@ const HighlightMenu: React.FC<HighlightMenuProps> = ({ editor }) => {
                 "flex-1 p-2 text-xs  transition-all font-medium hover:bg-stone-200",
                 {
                   "bg-stone-100": activeTab === "swatches",
-                }
+                },
               )}
               onClick={() => setActiveTab("swatches")}
               disabled={activeTab === "swatches"}
@@ -169,7 +169,7 @@ const HighlightMenu: React.FC<HighlightMenuProps> = ({ editor }) => {
                 "flex-1 p-2 text-xs  transition-all font-medium hover:bg-stone-200",
                 {
                   "bg-stone-100": activeTab === "custom",
-                }
+                },
               )}
               onClick={() => setActiveTab("custom")}
               disabled={activeTab === "custom"}

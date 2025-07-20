@@ -123,8 +123,11 @@ export default function ContactFormSection() {
       return;
     }
 
-    // Obtener token de reCAPTCHA
-    const recaptchaResponse = grecaptcha.getResponse();
+    // Obtener token de reCAPTCHA con verificación de seguridad
+    let recaptchaResponse = "";
+    if (typeof grecaptcha !== "undefined" && grecaptcha.getResponse) {
+      recaptchaResponse = grecaptcha.getResponse();
+    }
 
     // Proceder con el envío del formulario
     console.log("Formulario enviado:", formData);
@@ -153,7 +156,10 @@ export default function ContactFormSection() {
     });
     setIsRecaptchaCompleted(false);
     setFormSubmitted(false);
-    grecaptcha.reset();
+    // Verificar que grecaptcha esté disponible antes de hacer reset
+    if (typeof grecaptcha !== "undefined" && grecaptcha.reset) {
+      grecaptcha.reset();
+    }
   };
 
   return (

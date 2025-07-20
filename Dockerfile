@@ -1,19 +1,16 @@
 # Etapa 1: build
-FROM node:lts-alpine as builder
+FROM node:20-alpine as builder
 
 WORKDIR /app
-
 COPY package*.json ./
 RUN npm ci
-
 COPY . .
 RUN npm run build
 
-# Etapa 2: runtime solo con prod deps
-FROM node:lts-alpine as runtime
+# Etapa 2: runtime con solo dependencias de prod
+FROM node:20-alpine as runtime
 
 WORKDIR /app
-
 COPY --from=builder /app .
 
 RUN npm ci --omit=dev

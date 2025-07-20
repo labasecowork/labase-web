@@ -1,0 +1,233 @@
+---
+import BlogCard from "../blog_card/index.astro";
+
+// Datos estáticos de ejemplo para los blogs
+const posts = [
+  {
+    id: 1,
+    title: "Cómo maximizar tu productividad en un espacio de coworking",
+    description:
+      "Descubre las mejores estrategias para aprovechar al máximo tu tiempo y recursos en un ambiente colaborativo",
+    image: "https://images.pexels.com/photos/7654588/pexels-photo-7654588.jpeg",
+    author: {
+      name: "Equipo LaBase",
+      avatar: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
+      date: "15 de enero, 2024",
+    },
+  },
+  {
+    id: 2,
+    title: "Networking efectivo: Construye relaciones que importen",
+    description:
+      "Guía completa para crear conexiones significativas y duraderas en el mundo del emprendimiento",
+    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
+    author: {
+      name: "Equipo LaBase",
+      avatar: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
+      date: "10 de enero, 2024",
+    },
+  },
+  {
+    id: 3,
+    title: "El futuro del trabajo remoto y espacios híbridos",
+    description:
+      "Análisis de las tendencias que están definiendo el futuro de los espacios de trabajo colaborativos",
+    image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg",
+    author: {
+      name: "Equipo LaBase",
+      avatar: "https://api.uifaces.co/our-content/donated/FJkauyEa.jpg",
+      date: "5 de enero, 2024",
+    },
+  },
+];
+---
+
+<section
+  class="py-24 px-4 max-w-7xl mx-auto grid gap-2"
+  aria-label="Blog y búsqueda de artículos"
+>
+  <div class="mb-12 w-full">
+    <form
+      role="search"
+      aria-label="Buscar artículos"
+      class="flex flex-col sm:flex-row items-center gap-4 flex-wrap sm:flex-nowrap"
+    >
+      <div class="relative flex-grow w-full">
+        <label for="search-input" class="sr-only">Buscar artículos</label>
+        <input
+          type="search"
+          id="search-input"
+          name="search"
+          placeholder="Buscar..."
+          class="px-4 py-2 text-sm sm:text-base text-stone-500 ring-1 ring-stone-200 focus:ring-stone-900 outline-none w-full bg-stone-100 placeholder:text-stone-400"
+          aria-describedby="search-desc"
+        />
+      </div>
+      <button
+        type="submit"
+        class="text-stone-50 bg-stone-900 px-4 sm:px-8 py-2 text-center cursor-pointer h-full ring-stone-900 ring text-sm sm:text-base w-full sm:w-auto"
+        aria-label="Realizar búsqueda"
+      >
+        Buscar
+      </button>
+    </form>
+    <div
+      role="navigation"
+      aria-label="Términos de búsqueda populares"
+      class="mt-6 w-full"
+    >
+      <p
+        class="text-stone-500 text-sm sm:text-base flex items-center gap-1 flex-wrap"
+      >
+        <span class="text-stone-800 mr-2 font-bold">Busquedas top:</span>
+        <a href="/blog/tag/empresas" class="underline">empresas</a>,
+        <a href="/blog/tag/emprendimiento" class="underline">emprendimiento</a>,
+        <a href="/blog/tag/estudio" class="underline">estudio</a>,
+        <a href="/blog/tag/abogados" class="underline">abogados</a>,
+        <a href="/blog/tag/arxatec" class="underline">arxatec</a>,
+        <a href="/blog/tag/practicas" class="underline">practicas</a>,
+        <a href="/blog/tag/webinar" class="underline">webinar</a>
+      </p>
+    </div>
+  </div>
+
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
+    role="feed"
+    aria-label="Lista de artículos del blog"
+  >
+    {
+      posts.length > 0 ? (
+        posts.map((post) => <BlogCard {...post} />)
+      ) : (
+        <div
+          class="col-span-3 text-center py-12"
+          role="status"
+          aria-live="polite"
+        >
+          <p class="text-lg text-stone-600">
+            No hay blogs disponibles en este momento.
+          </p>
+        </div>
+      )
+    }
+  </div>
+
+  <nav class="mt-6" role="navigation" aria-label="Paginación de artículos">
+    <div class="flex items-center justify-between py-3">
+      {/* Paginación móvil */}
+      <div class="flex flex-1 justify-between sm:hidden">
+        <a
+          href="#"
+          class="relative inline-flex items-center border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
+          aria-label="Ir a página anterior"
+        >
+          Previous
+        </a>
+        <a
+          href="#"
+          class="relative ml-3 inline-flex items-center border border-stone-300 bg-white px-4 py-2 text-sm font-medium text-stone-700 hover:bg-stone-50"
+          aria-label="Ir a página siguiente"
+        >
+          Next
+        </a>
+      </div>
+
+      {/* Paginación desktop */}
+      <div class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-center">
+        <div>
+          <nav
+            class="isolate inline-flex -space-x-px shadow-xs"
+            aria-label="Paginación"
+          >
+            <a
+              href="#"
+              class="relative inline-flex items-center px-2 py-2 text-stone-400 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0"
+              aria-label="Ir a página anterior"
+            >
+              <span class="sr-only">Anterior</span>
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M11.78 5.22a.75.75 0 0 1 0 1.06L8.06 10l3.72 3.72a.75.75 0 1 1-1.06 1.06l-4.25-4.25a.75.75 0 0 1 0-1.06l4.25-4.25a.75.75 0 0 1 1.06 0Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+
+            <a
+              href="#"
+              aria-current="page"
+              aria-label="Página 1, página actual"
+              class="relative z-10 inline-flex items-center bg-stone-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-600"
+              >1</a
+            >
+
+            <a
+              href="#"
+              aria-label="Ir a página 2"
+              class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0"
+              >2</a
+            >
+
+            <a
+              href="#"
+              aria-label="Ir a página 3"
+              class="relative hidden items-center px-4 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              >3</a
+            >
+
+            <span
+              class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-stone-700 ring-1 ring-stone-300 ring-inset focus:outline-offset-0"
+              aria-hidden="true">...</span
+            >
+
+            <a
+              href="#"
+              aria-label="Ir a página 8"
+              class="relative hidden items-center px-4 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
+              >8</a
+            >
+
+            <a
+              href="#"
+              aria-label="Ir a página 9"
+              class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0"
+              >9</a
+            >
+
+            <a
+              href="#"
+              aria-label="Ir a página 10"
+              class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-stone-900 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0"
+              >10</a
+            >
+
+            <a
+              href="#"
+              class="relative inline-flex items-center px-2 py-2 text-stone-400 ring-1 ring-stone-300 ring-inset hover:bg-stone-50 focus:z-20 focus:outline-offset-0"
+              aria-label="Ir a página siguiente"
+            >
+              <span class="sr-only">Siguiente</span>
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"></path>
+              </svg>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

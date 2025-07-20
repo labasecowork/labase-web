@@ -1,12 +1,16 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
-import IntroSection from "../../components/pages/mentoria/intro-section/index.astro";
-import BenefitsSection from "../../components/pages/shared/benefits-section/index.astro";
-import ProcessSection from "../../components/pages/mentoria/process-section/index.astro";
-import MentorsSection from "../../components/pages/mentoria/mentors-section/index.tsx";
-import QASection from "../../components/pages/shared/qa-section/index.astro";
-import CtaSection from "../../components/pages/shared/cta-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import {
+  HeroSection,
+  BenefitsSection,
+  CtaSection,
+  QaSection,
+} from "@/components/pages/shared";
+import {
+  IntroSection,
+  ProcessSection,
+  MentorsSection,
+} from "@/components/pages/mentoria";
 import { mentoriaMeta } from "@/config/meta";
 
 const faqs = [
@@ -48,7 +52,7 @@ const faqs = [
 ];
 ---
 
-<Layout
+<CoreLayout
   title={mentoriaMeta.title}
   description={mentoriaMeta.description}
   keywords={mentoriaMeta.keywords}
@@ -69,7 +73,7 @@ const faqs = [
   <BenefitsSection />
   <ProcessSection />
   <MentorsSection client:load />
-  <QASection faqs={faqs} />
+  <QaSection faqs={faqs} />
   <CtaSection
     tag="¿LISTO PARA CRECER?"
     title="Comienza tu transformación"
@@ -77,4 +81,4 @@ const faqs = [
     button="AGENDAR PRIMERA SESIÓN"
     image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
   />
-</Layout>
+</CoreLayout>

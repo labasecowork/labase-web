@@ -1,16 +1,23 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/pages/shared/header/index.jsx";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
-import TestimonialCarousel from "../../components/pages/testimonios/testimonials-carousel/index.jsx";
-import Banner from "../../components/pages/testimonios/google-review/index.astro";
-import CtaSection from "../../components/pages/shared/cta-section/index.astro";
-import VideoCTA from "../../components/pages/shared/video-cta/index.astro";
+import { CoreLayout } from "@/layouts";
+import { HeroSection, CtaSection, VideoCta } from "@/components/pages/shared";
+import {
+  TestimonialCarousel,
+  GoogleReview,
+} from "@/components/pages/testimonios";
 import { testimoniosMeta } from "@/config/meta";
 ---
 
-<Layout>
-  <Header />
+<CoreLayout
+  title={testimoniosMeta.title}
+  description={testimoniosMeta.description}
+  keywords={testimoniosMeta.keywords}
+  canonical={testimoniosMeta.canonical}
+  image={testimoniosMeta.image}
+  type={testimoniosMeta.type}
+  robots={testimoniosMeta.robots}
+  structuredData={testimoniosMeta.structuredData}
+>
   <HeroSection
     title="Testimonios"
     tag="Lo que dicen nuestros clientes"
@@ -19,7 +26,7 @@ import { testimoniosMeta } from "@/config/meta";
   />
   <TestimonialCarousel client:only="react" />
 
-  <VideoCTA
+  <VideoCta
     title="Conoce La Base desde dentro"
     subtitle="Mira el video y únete a la misión"
     description="¿Te imaginas trabajar en un espacio que no solo inspira, sino que también potencia tu misión? En La Base, cada rincón tiene un propósito táctico: desde el Hangar hasta los Bunkers, todo está diseñado para maximizar tu enfoque, creatividad y colaboración. No es solo un cowork, es una zona de operaciones para los que quieren conquistar sus objetivos con precisión. Mira el video y conoce el ecosistema donde las ideas se transforman en ofensivas estratégicas."
@@ -28,6 +35,6 @@ import { testimoniosMeta } from "@/config/meta";
     buttonText="Reproduce la experiencia"
   />
 
-  <Banner />
+  <GoogleReview />
   <CtaSection />
-</Layout>
+</CoreLayout>

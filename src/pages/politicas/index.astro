@@ -1,21 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import { HeroSection } from "@/components/pages/shared";
 import { politicasMeta } from "@/config/meta";
-
-const title = "Política - La Base";
-const description =
-  "Descubre cómo La Base Cowork en Huancayo protege, gestiona y utiliza tu información personal. Conoce nuestra política de privacidad.";
-const keywords =
-  "política de privacidad, La Base Cowork, datos personales, protección de datos, privacidad, Huancayo, ARCO";
-const canonical = Astro.url.pathname;
-const image = "https://labase.pe/assets/images/cowork-privacy.jpg";
-const type = "website";
-const robots = "noindex, nofollow";
-const structuredData = {};
 ---
 
-<Layout
+<CoreLayout
   title={politicasMeta.title}
   description={politicasMeta.description}
   keywords={politicasMeta.keywords}
@@ -451,4 +440,4 @@ const structuredData = {};
       </p>
     </section>
   </div>
-</Layout>
+</CoreLayout>

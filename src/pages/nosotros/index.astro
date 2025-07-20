@@ -1,6 +1,6 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { TeamSection } from "../../components/pages/nosotros";
+import { CoreLayout } from "@/layouts";
+import { TeamSection } from "@/components/pages/nosotros";
 import {
   InfoSection,
   CtaSection,
@@ -12,7 +12,7 @@ import {
 import { nosotrosMeta } from "@/config/meta";
 ---
 
-<Layout
+<CoreLayout
   title={nosotrosMeta.title}
   description={nosotrosMeta.description}
   keywords={nosotrosMeta.keywords}
@@ -27,7 +27,6 @@ import { nosotrosMeta } from "@/config/meta";
     tag="Aquí nace el futuro"
     image="/images/espacios/sala_de_recepcion/7.webp"
   />
-
   <InfoSection
     tag="No es solo un lugar para trabajar"
     title="Creamos este cowork por esto"
@@ -36,14 +35,9 @@ import { nosotrosMeta } from "@/config/meta";
     button2="ÚNETE A NOSOTROS"
     image="/images/espacios/unidades/9.webp"
   />
-
   <BenefitsSection />
-
   <StatsSection image="public/images/espacios/bunkers/7.webp" />
-
   <TeamSection />
-
   <LastVideosSection />
-
   <CtaSection />
-</Layout>
+</CoreLayout>

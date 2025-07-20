@@ -1,9 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { CoreLayout } from "@/layouts";
 import { notFoundMeta } from "@/config/meta";
 ---
 
-<Layout
+<CoreLayout
   title={notFoundMeta.title}
   description={notFoundMeta.description}
   keywords={notFoundMeta.keywords}
@@ -67,4 +67,4 @@ import { notFoundMeta } from "@/config/meta";
       </div>
     </section>
   </main>
-</Layout>
+</CoreLayout>

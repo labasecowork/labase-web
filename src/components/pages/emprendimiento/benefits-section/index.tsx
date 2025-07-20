@@ -1,12 +1,31 @@
 import { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { Navigation } from "swiper/modules";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-function TestimonialCard({ testimonial }) {
+// Tipos de datos
+interface Testimonial {
+  id: string | number;
+  text: string;
+  name: string;
+  source: string;
+}
+
+interface TestimonialCardProps {
+  testimonial: Testimonial;
+}
+
+interface TestimonialsSectionProps {
+  title?: string;
+  subtitle?: string;
+  testimonials: Testimonial[];
+}
+
+function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className="bg-stone-50 border border-stone-100 rounded-lg p-4 sm:p-6 h-[280px] flex flex-col">
       <div className="flex mb-3">
@@ -43,18 +62,24 @@ export default function TestimonialsSection({
   title = "HEAR WHAT PEOPLE ARE",
   subtitle = "SAYING ABOUT US",
   testimonials,
-}) {
-  const [isMounted, setIsMounted] = useState(false);
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
-  const [swiper, setSwiper] = useState(null);
+}: TestimonialsSectionProps) {
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
   useEffect(() => {
     setIsMounted(true);
 
     if (swiper && prevRef.current && nextRef.current) {
-      swiper.params.navigation.prevEl = prevRef.current;
-      swiper.params.navigation.nextEl = nextRef.current;
+      // Verificar que navigation existe y es un objeto antes de acceder a sus propiedades
+      if (
+        swiper.params.navigation &&
+        typeof swiper.params.navigation === "object"
+      ) {
+        (swiper.params.navigation as any).prevEl = prevRef.current;
+        (swiper.params.navigation as any).nextEl = nextRef.current;
+      }
       swiper.navigation.destroy(); // Destruir la navegación anterior para responsividad
       swiper.navigation.init();
       swiper.navigation.update();
@@ -95,7 +120,7 @@ export default function TestimonialsSection({
             onSwiper={setSwiper}
             className="w-full"
           >
-            {testimonials.map((testimonial) => (
+            {testimonials.map((testimonial: Testimonial) => (
               <SwiperSlide key={testimonial.id}>
                 <TestimonialCard testimonial={testimonial} />
               </SwiperSlide>

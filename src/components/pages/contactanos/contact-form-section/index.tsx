@@ -2,7 +2,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useEffect, useState } from "react";
-import apiClient from "@/services/apiClient";
+import apiClient from "@/services/";
 import ReCAPTCHA from "react-google-recaptcha";
 
 const contactSchema = z.object({
@@ -235,7 +235,9 @@ export default function ContactFormSection() {
               id="firstName"
               placeholder="Nombres"
               {...register("firstName")}
-              className={`w-full p-3 border ${errors.firstName ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
+              className={`w-full p-3 border ${
+                errors.firstName ? "border-red-500" : "border-stone-300"
+              } text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
               aria-invalid={!!errors.firstName}
             />
             {errors.firstName && (
@@ -253,7 +255,9 @@ export default function ContactFormSection() {
               id="lastName"
               placeholder="Apellidos"
               {...register("lastName")}
-              className={`w-full p-3 border ${errors.lastName ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
+              className={`w-full p-3 border ${
+                errors.lastName ? "border-red-500" : "border-stone-300"
+              } text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
               aria-invalid={!!errors.lastName}
             />
             {errors.lastName && (
@@ -273,7 +277,9 @@ export default function ContactFormSection() {
             id="email"
             placeholder="Correo electrónico"
             {...register("email")}
-            className={`w-full p-3 border ${errors.email ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
+            className={`w-full p-3 border ${
+              errors.email ? "border-red-500" : "border-stone-300"
+            } text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
             aria-invalid={!!errors.email}
           />
           {errors.email && (
@@ -290,7 +296,9 @@ export default function ContactFormSection() {
             id="phone"
             placeholder="Numero de celular"
             {...register("phoneNumber")}
-            className={`w-full p-3 border ${errors.phoneNumber ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
+            className={`w-full p-3 border ${
+              errors.phoneNumber ? "border-red-500" : "border-stone-300"
+            } text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
             aria-invalid={!!errors.phoneNumber}
           />
           {errors.phoneNumber && (
@@ -307,7 +315,9 @@ export default function ContactFormSection() {
           <select
             id="topic"
             {...register("reason")}
-            className={`w-full p-3 border ${errors.reason ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
+            className={`w-full p-3 border ${
+              errors.reason ? "border-red-500" : "border-stone-300"
+            } text-sm sm:text-base tracking-wider bg-stone-50 placeholder:text-stone-400`}
             aria-invalid={!!errors.reason}
           >
             <option value="">Selecciona la razon</option>
@@ -329,7 +339,9 @@ export default function ContactFormSection() {
             placeholder="Preguntas / Comentarios:"
             rows={4}
             {...register("message")}
-            className={`w-full p-3 border ${errors.message ? "border-red-500" : "border-stone-300"} text-sm sm:text-base tracking-wider resize-y bg-stone-50 placeholder:text-stone-400`}
+            className={`w-full p-3 border ${
+              errors.message ? "border-red-500" : "border-stone-300"
+            } text-sm sm:text-base tracking-wider resize-y bg-stone-50 placeholder:text-stone-400`}
             aria-invalid={!!errors.message}
           ></textarea>
           {errors.message && (
@@ -359,7 +371,9 @@ export default function ContactFormSection() {
 
         {submissionStatus && (
           <p
-            className={`text-center ${submissionStatus.success ? "text-green-600" : "text-red-600"}`}
+            className={`text-center ${
+              submissionStatus.success ? "text-green-600" : "text-red-600"
+            }`}
           >
             {submissionStatus.message}
           </p>

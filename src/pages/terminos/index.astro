@@ -1,21 +1,10 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import { HeroSection } from "@/components/pages/shared";
 import { terminosMeta } from "@/config/meta";
-
-const title = "Términos - La Base";
-const description =
-  "Conoce los términos y condiciones de uso que rigen los servicios e instalaciones de La Base Cowork en Huancayo, Junín, Perú.";
-const keywords =
-  "términos y condiciones, La Base Cowork, normas, reglas, uso, servicios, membresías, Huancayo";
-const canonical = Astro.url.pathname;
-const image = "https://labase.pe/assets/images/cowork-terms.jpg";
-const type = "website";
-const robots = "noindex, nofollow";
-const structuredData = {};
 ---
 
-<Layout
+<CoreLayout
   title={terminosMeta.title}
   description={terminosMeta.description}
   keywords={terminosMeta.keywords}
@@ -709,4 +698,4 @@ const structuredData = {};
       </p>
     </section>
   </div>
-</Layout>
+</CoreLayout>

@@ -4,8 +4,7 @@
  * Muestra el contenido completo del blog, metadatos y navegación
  */
 
-import Layout from "@/layouts/Layout.astro";
-import { blogService } from "@/services/blogService";
+import Layout from "@/layouts/core/index.astro";
 import { ArrowLeft, Edit, Calendar, User } from "lucide-react";
 
 // Obtener el ID del blog de la URL
@@ -16,23 +15,12 @@ if (!id || isNaN(parseInt(id))) {
   return Astro.redirect("/404");
 }
 
-// Obtener el blog usando el servicio unificado
-const blog = await blogService.getById(parseInt(id));
-
-// Manejar blog no encontrado
-if (!blog) {
-  return Astro.redirect("/404");
-}
-
 // Formatear la fecha en español
-const formattedDate = new Date(blog.created_at || "").toLocaleDateString(
-  "es-ES",
-  {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }
-);
+const formattedDate = new Date("").toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 
 // Generar IDs únicos para elementos relacionados
 const articleId = `blog-article-${id}`;
@@ -41,10 +29,7 @@ const headerImageId = `${articleId}-header-image`;
 const contentId = `${articleId}-content`;
 ---
 
-<Layout
-  title={blog.title || "Blog"}
-  description={blog.description || blog.contenido?.substring(0, 160)}
->
+<Layout title={"Blog"} description={"Blog"}>
   <main>
     <section
       class="relative h-[800px] flex flex-col justify-center items-center"
@@ -54,7 +39,7 @@ const contentId = `${articleId}-content`;
       <div
         id={headerImageId}
         class="bg-cover bg-center bg-no-repeat w-full h-full absolute z-0 bg-fixed"
-        style={`background-image: url('${blog["imagen destacada"]}')`}
+        style={`background-image: url('')`}
         role="img"
         aria-label="Imagen destacada del artículo"
       >
@@ -79,7 +64,7 @@ const contentId = `${articleId}-content`;
             <User className="w-4 h-4" aria-hidden="true" />
             <span>
               <span class="sr-only">Autor:</span>
-              {blog.author || "Anónimo"}
+              {"Anónimo"}
             </span>
           </div>
           <div class="flex items-center gap-2 text-white">
@@ -94,7 +79,7 @@ const contentId = `${articleId}-content`;
           id={titleId}
           class="font-medium text-5xl text-center font-secondary text-white leading-16"
         >
-          {blog.title}
+          {"Blog"}
         </h1>
       </div>
     </section>
@@ -104,7 +89,7 @@ const contentId = `${articleId}-content`;
       id={contentId}
       aria-labelledby={titleId}
     >
-      <div class="blog-content" set:html={blog.contenido} />
+      <div class="blog-content" set:html={""} />
     </article>
 
     <nav

@@ -1,14 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/pages/shared/header/index.jsx";
-import Footer from "../../components/pages/shared/footer/index.astro";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
-import RecentPosts from "../../components/pages/blog/RecenPost.astro";
-import CtaSection from "../../components/pages/shared/cta-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import { HeroSection, CtaSection } from "@/components/pages/shared";
+import { RecentPost } from "@/components/pages/blog";
 import { blogMeta } from "@/config/meta";
 ---
 
-<Layout
+<CoreLayout
   title={blogMeta.title}
   description={blogMeta.description}
   keywords={blogMeta.keywords}
@@ -24,6 +21,6 @@ import { blogMeta } from "@/config/meta";
     image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&q=80"
     button="CONTACTANOS"
   />
-  <RecentPosts />
+  <RecentPost />
   <CtaSection />
-</Layout>
+</CoreLayout>

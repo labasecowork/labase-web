@@ -1,9 +1,9 @@
-export { default as Header } from "./header/index.jsx";
+export { default as Header } from "./header/index.tsx";
 export { default as HeroSection } from "./hero-section/index.astro";
 export { default as QaSection } from "./qa-section/index.astro";
 export { default as VideoCta } from "./video-cta/index.astro";
 export { default as PhraseSection } from "./phrase-section/index.astro";
-export { default as SpacesSection } from "./spaces-section/index.jsx";
+export { default as SpacesSection } from "./spaces-section/index.tsx";
 export { default as CtaSection } from "./cta-section/index.astro";
 export { default as LastVideosSection } from "./last-videos-section/index.astro";
 export { default as InfoSection } from "./info-section/index.astro";

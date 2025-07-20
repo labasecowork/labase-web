@@ -1,15 +1,15 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/pages/emprendimiento/hero-section/index.astro";
-import StatsSection from "../../components/pages/emprendimiento/stats-section/index.jsx";
-import OurModelSection from "../../components/pages/emprendimiento/our-model-section/index.astro";
-import QASection from "../../components/pages/shared/qa-section/index.astro";
-import CasosExitoSection from "../../components/pages/emprendimiento/cases-exit/index.astro";
-import CTASection from "../../components/pages/shared/cta-section/index.astro";
-import PreIncubationSection from "@/components/pages/emprendimiento/pre-incubation-section/index.astro";
-import IncubationSection from "@/components/pages/emprendimiento/incubation-section/index.astro";
-import AccelerationSection from "@/components/pages/emprendimiento/acceleration-section/index.astro";
-import PhasesSection from "@/components/pages/shared/phrase-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import {
+  HeroSection,
+  StatsSection,
+  OurModelSection,
+  CasosExitoSection,
+  PreIncubationSection,
+  AccelerationSection,
+  IncubationSection,
+} from "@/components/pages/emprendimiento";
+import { QaSection, PhraseSection } from "@/components/pages/shared";
 import { emprendimientoMeta } from "@/config/meta";
 
 const faqs = [
@@ -51,7 +51,7 @@ const faqs = [
 ];
 ---
 
-<Layout
+<CoreLayout
   title={emprendimientoMeta.title}
   description={emprendimientoMeta.description}
   keywords={emprendimientoMeta.keywords}
@@ -66,8 +66,8 @@ const faqs = [
   <StatsSection client:only="react" />
   <PreIncubationSection />
   <IncubationSection />
-  <PhasesSection />
+  <PhraseSection />
   <AccelerationSection />
   <CasosExitoSection />
-  <QASection faqs={faqs} />
-</Layout>
+  <QaSection faqs={faqs} />
+</CoreLayout>

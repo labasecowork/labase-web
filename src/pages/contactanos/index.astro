@@ -1,13 +1,11 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import HeroSection from "../../components/pages/shared/hero-section/index.astro";
-import ContactFormSection from "../../components/pages/contactanos/contact-form-section/index.astro";
-import MapSection from "../../components/pages/contactanos/map-section/index.astro";
-import TitleSection from "../../components/pages/shared/title-section/index.astro";
+import { CoreLayout } from "@/layouts";
+import { HeroSection, TitleSection } from "@/components/pages/shared";
+import { ContactFormSection, MapSection } from "@/components/pages/contactanos";
 import { contactanosMeta } from "@/config/meta";
 ---
 
-<Layout
+<CoreLayout
   title={contactanosMeta.title}
   description={contactanosMeta.description}
   keywords={contactanosMeta.keywords}
@@ -24,12 +22,10 @@ import { contactanosMeta } from "@/config/meta";
     button="AGENDAR UNA REUNIÓN"
   />
   <ContactFormSection />
-
   <TitleSection
     tag="Encuéntranos"
     title="Encuentra nuestras ubicaciones"
     description="Descubre dónde estamos y visita nuestros espacios diseñados para impulsar tu productividad. Conoce nuestras sedes, sus beneficios y cómo acceder a ellas fácilmente."
   />
-
   <MapSection />
-</Layout>
+</CoreLayout>

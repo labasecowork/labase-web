@@ -90,7 +90,7 @@ export const JoinForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
       <h2 className="text-2xl font-semibold text-center text-stone-100 mb-4 font-secondary">
-        Sé parte de la base
+        Sé parte de La Base
       </h2>
 
       <div>

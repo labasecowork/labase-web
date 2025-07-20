@@ -9,7 +9,7 @@ const getBotResponse = async (userMessage) => {
       "https://arxatec-service-production.up.railway.app/api/v1/chatbot/send-message",
       {
         message: userMessage,
-      },
+      }
     );
 
     return response.data.data;
@@ -68,7 +68,7 @@ export const Chat = ({ setOpenChat, props }) => {
   };
 
   return (
-    <div className="flex flex-col h-[600px] w-full max-w-md mx-auto  shadow-lg overflow-hidden bg-white fixed bottom-0 right-0 md:bottom-4 md:right-4 z-40 rounded-m">
+    <div className="flex flex-col h-[600px] w-full max-w-md mx-auto  shadow-lg overflow-hidden bg-white fixed bottom-0 right-0 md:bottom-4 md:right-4 z-50 rounded-m">
       <div className="p-2 bg-white flex items-center justify-between border-b border-stone-200">
         <div className="flex items-center ">
           {!isHome && (

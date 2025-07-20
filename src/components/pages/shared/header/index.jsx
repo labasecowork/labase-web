@@ -127,7 +127,7 @@ export default function Navbar({ isTransparent = true }) {
           duration: 0.8,
           delay: 0.7,
           ease: "power2.out",
-        },
+        }
       );
     } else if (!isAnimating && panelsRef.current.length > 0) {
       setIsAnimating(true);
@@ -166,7 +166,7 @@ export default function Navbar({ isTransparent = true }) {
   return (
     <>
       <header
-        className={`fixed inset-x-0 z-40 transition-all ease-linear duration-500 text-white ${
+        className={`fixed inset-x-0 z-50 transition-all ease-linear duration-500 text-white ${
           !isHeaderVisible ? "top-0" : "-top-[500px]"
         }`}
         style={{
@@ -244,7 +244,7 @@ export default function Navbar({ isTransparent = true }) {
 
       <div
         id={menuId}
-        className={`fixed inset-0 z-40 ${
+        className={`fixed inset-0 z-50 ${
           isOpen || isAnimating ? "block" : "hidden"
         }`}
         role="dialog"

@@ -25,10 +25,10 @@ export const AlignmentMenu = ({ editor }: AlignmentMenuProps) => {
   const activeAlignment = editor.isActive({ textAlign: "left" })
     ? "left"
     : editor.isActive({ textAlign: "center" })
-      ? "center"
-      : editor.isActive({ textAlign: "right" })
-        ? "right"
-        : "left";
+    ? "center"
+    : editor.isActive({ textAlign: "right" })
+    ? "right"
+    : "left";
 
   // Devuelve el ícono según la alineación activa
   const getButtonIcon = () => {
@@ -72,8 +72,8 @@ export const AlignmentMenu = ({ editor }: AlignmentMenuProps) => {
 
   // Clases para el botón y el menú
   const buttonClassName = `
-
-    size-10 inline-flex items-center justify-center
+    
+    size-10 inline-flex items-center justify-center  
     bg-transparent text-sm font-medium
     hover:bg-stone-100 focus:outline-none focus:ring-2 focus:ring-stone-400
     transition-colors
@@ -81,7 +81,7 @@ export const AlignmentMenu = ({ editor }: AlignmentMenuProps) => {
   `;
 
   const menuItemClassName = `
-    group flex items-center px-3 py-2 text-sm text-stone-700
+    group flex items-center px-3 py-2 text-sm text-stone-700 
     data-[focus]:bg-stone-100 data-[focus]:text-stone-900 data-[focus]:outline-none
     transition-colors
   `;
@@ -91,7 +91,7 @@ export const AlignmentMenu = ({ editor }: AlignmentMenuProps) => {
       sections={alignmentItems}
       buttonIcon={getButtonIcon()}
       buttonClassName={buttonClassName}
-      menuClassName="absolute z-40 mt-1 w-48 origin-top-right  bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+      menuClassName="absolute z-50 mt-1 w-48 origin-top-right  bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
       menuItemClassName={menuItemClassName}
       position="left"
       width="w-48"

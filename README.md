@@ -1,7 +1,7 @@
 # La Base Cowork - Sitio Web
 
 <div align="center">
-  <img src="public/logo.png" alt="La Base Cowork" width="300"/>
+  <img src="public/favicon.svg" alt="La Base Cowork" width="150"/>
   <br><br>
   <strong>Un ecosistema de posibilidades donde nace el futuro</strong>
   <br><br>

@@ -61,7 +61,7 @@ const ColorButton: React.FC<ColorButtonProps> = ({
       type="button"
       className={combineClassNames(
         "w-6 h-6  border transition-all hover:scale-110",
-        active ? "ring-1 ring-offset-1 ring-blue-600" : ""
+        active ? "ring-1 ring-offset-1 ring-blue-600" : "",
       )}
       style={{ backgroundColor: color }}
       onClick={() => onClick(color)}
@@ -146,7 +146,7 @@ const ColorMenu: React.FC<ColorMenuProps> = ({ editor }) => {
         ref={triggerRef}
         className={combineClassNames(
           "editor-toolbar-btn size-10 flex items-center justify-center hover:bg-stone-100 transition-all ",
-          editor.isActive("textStyle") ? "active" : ""
+          editor.isActive("textStyle") ? "active" : "",
         )}
         title="Text Color"
         onClick={togglePopover}
@@ -158,14 +158,14 @@ const ColorMenu: React.FC<ColorMenuProps> = ({ editor }) => {
       {isOpen && (
         <div
           ref={popoverRef}
-          className="absolute top-full mt-1 left-0 z-50 w-64  shadow-lg bg-white border py-2"
+          className="absolute top-full mt-1 left-0 z-40 w-64  shadow-lg bg-white border py-2"
         >
           {/* Tabs para cambiar entre paleta y selector personalizado */}
           <div className="flex gap-2 mb-2 border-b pb-2 px-2">
             <button
               className={combineClassNames(
                 "flex-1 p-2 text-xs  transition-all font-medium hover:bg-stone-200",
-                activeTab === "swatches" ? "bg-stone-100" : ""
+                activeTab === "swatches" ? "bg-stone-100" : "",
               )}
               onClick={() => setActiveTab("swatches")}
               disabled={activeTab === "swatches"}
@@ -175,7 +175,7 @@ const ColorMenu: React.FC<ColorMenuProps> = ({ editor }) => {
             <button
               className={combineClassNames(
                 "flex-1 p-2 text-xs  transition-all font-medium hover:bg-stone-200",
-                activeTab === "custom" ? "bg-stone-100" : ""
+                activeTab === "custom" ? "bg-stone-100" : "",
               )}
               onClick={() => setActiveTab("custom")}
               disabled={activeTab === "custom"}

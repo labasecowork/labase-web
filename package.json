@@ -9,14 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.3.0",
     "@astrojs/react": "^4.2.3",
     "@astrojs/tailwind": "^6.0.2",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource-variable/playfair-display": "^5.2.5",
-    "@steamer-academy/react-google-recaptcha": "^4.1.2",
     "@heroicons/react": "^2.2.0",
     "@hookform/resolvers": "^5.1.1",
+    "@steamer-academy/react-google-recaptcha": "^4.1.2",
     "@tailwindcss/vite": "^4.0.14",
     "astro": "^5.5.3",
     "astro-heroicons": "^2.1.5-1",

@@ -1,6 +1,7 @@
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
+import node from "@astrojs/node";
 
 export default defineConfig({
   integrations: [
@@ -13,4 +14,5 @@ export default defineConfig({
   ],
   // Configuración para el manejo de rutas
   output: "server", // Cambia esto a 'server' para habilitar el renderizado del lado del servidor (SSR)
+  adapter: node({ mode: "standalone" }),
 });

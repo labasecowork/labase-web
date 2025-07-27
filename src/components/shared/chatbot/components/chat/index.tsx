@@ -1,16 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChatInput, ChatMessage, TypingIndicator } from "../";
 import { initialMessages } from "../../data";
-import axios from "axios";
+import apiClient from "@/services";
 
-const getBotResponse = async (userMessage) => {
+const getBotResponse = async (userMessage: string) => {
   try {
-    const response = await axios.post(
-      "https://arxatec-service-production.up.railway.app/api/v1/chatbot/send-message",
-      {
-        message: userMessage,
-      },
-    );
+    const response = await apiClient.post("/chatbot/send-message", {
+      message: userMessage,
+    });
 
     return response.data.data;
   } catch (error) {

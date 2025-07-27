@@ -10,6 +10,7 @@ import {
   LastVideosSection,
 } from "@/components/pages/shared";
 import { nosotrosMeta } from "@/config/meta";
+import { routes } from "@/config";
 ---
 
 <CoreLayout
@@ -31,13 +32,18 @@ import { nosotrosMeta } from "@/config/meta";
     tag="No es solo un lugar para trabajar"
     title="Creamos este cowork por esto"
     description="Porque sentimos en carne propia lo que es trabajar sin conexión, rodeados de paredes frías y silencios incómodos. Creamos este cowork para romper con eso. Queríamos un espacio donde cada conversación pueda ser el inicio de una colaboración, donde te rodees de personas que también están apostando por algo grande. Aquí no vienes solo a cumplir horas, vienes a construir, a inspirarte, a pertenecer. Porque cuando te rodeas de la energía correcta, todo cambia: el enfoque, las ideas, y hasta los lunes."
-    button1="CONÓCENOS"
-    button2="ÚNETE A NOSOTROS"
+    button2="ESPACIOS"
+    button2Href={routes.spaces}
+    button1Href={routes.contact}
+    button1="ÚNETE A NOSOTROS"
     image="/images/espacios/unidades/9.webp"
   />
   <BenefitsSection />
   <StatsSection image="public/images/espacios/bunkers/7.webp" />
   <TeamSection />
   <LastVideosSection />
-  <CtaSection />
+  <CtaSection
+    image="/images/espacios/sala_de_recepcion/1.webp"
+    description="¿Listo para unirte a la comunidad? Descubre cómo La Base puede ser el trampolín para tu éxito. Únete a nosotros y transforma tu forma de trabajar."
+  />
 </CoreLayout>

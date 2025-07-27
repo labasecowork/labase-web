@@ -17,7 +17,7 @@ const testimonials = [
   },
 ];
 
-const { image, opacity } = Astro.props;
+const { image, opacity, video } = Astro.props;
 ---
 
 <section aria-label="Testimonios de clientes" role="region">
@@ -35,10 +35,7 @@ const { image, opacity } = Astro.props;
             playsinline
             class="w-full h-full object-cover"
           >
-            <source
-              src="https://videos.pexels.com/video-files/4428751/4428751-uhd_2560_1440_25fps.mp4"
-              type="video/mp4"
-            />
+            <source src={video} type="video/mp4" />
           </video>
           {opacity === undefined ? (
             <div class="absolute inset-0 bg-black/80" aria-hidden="true" />
@@ -270,7 +267,7 @@ const { image, opacity } = Astro.props;
 
   carousel.addEventListener("mouseup", (e) => handleDragEnd(e.pageX));
   carousel.addEventListener("touchend", (e) =>
-    handleDragEnd(e.changedTouches[0].pageX)
+    handleDragEnd(e.changedTouches[0].pageX),
   );
   carousel.addEventListener("mouseleave", () => (isDragging = false));
 

@@ -2,6 +2,7 @@
 import { CoreLayout } from "@/layouts";
 import { HeroSection } from "@/components/pages/shared";
 import { politicasMeta } from "@/config/meta";
+import { contact } from "@/config";
 ---
 
 <CoreLayout
@@ -17,7 +18,7 @@ import { politicasMeta } from "@/config/meta";
   <HeroSection
     title="POLITICAS DE PRIVACIDAD"
     tag="COMPRENDE NUESTRAS"
-    image="https://images.pexels.com/photos/1411394/pexels-photo-1411394.jpeg"
+    image="/images/espacios/lockers/2.webp"
   />
   <div class="mx-auto px-12 py-24 max-w-4xl">
     <section class="mb-10">
@@ -28,12 +29,12 @@ import { politicasMeta } from "@/config/meta";
       </h2>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
         <b>La Base Cowork</b> es un espacio de trabajo colaborativo, incubadora de
-        empresas y centro de mentoría ubicado en Jr. Tacna 234 - Edificio Galena
-        - Piso 10, Huancayo, Junín, Perú. Nuestro objetivo es proporcionar un ambiente
-        óptimo para la productividad, la innovación y el networking, apoyando a profesionales,
-        emprendedores y empresas en la región de Huancayo. Como parte de nuestra
-        operación, es necesario recopilar y procesar cierta información personal
-        de nuestros miembros, visitantes y usuarios.
+        empresas y centro de mentoría ubicado en {contact.address}. Nuestro
+        objetivo es proporcionar un ambiente óptimo para la productividad, la
+        innovación y el networking, apoyando a profesionales, emprendedores y
+        empresas en la región de Huancayo. Como parte de nuestra operación, es
+        necesario recopilar y procesar cierta información personal de nuestros
+        miembros, visitantes y usuarios.
       </p>
     </section>
 
@@ -62,7 +63,7 @@ import { politicasMeta } from "@/config/meta";
               adquieres un pase diario, o te comunicas con nosotros, podemos solicitar
               información como tu nombre completo, número de documento de identidad
               (DNI o RUC), dirección de correo electrónico, número de teléfono (ej.
-              960270555), dirección postal, fecha de nacimiento y género.
+              {contact.phone}), dirección postal, fecha de nacimiento y género.
             </li>
             <li>
               <b>Datos de Pago:</b> Información necesaria para procesar pagos de
@@ -418,24 +419,28 @@ import { politicasMeta } from "@/config/meta";
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
         <b>Nombre de la Empresa:</b>
-        <b>La Base Cowork</b>
+        <b>
+          {contact.companyName}
+        </b>
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Dirección:</b> Jr. Tacna 234 - Edificio Galena - Piso 10, Huancayo, Junín,
-        Perú.
+        <b>Dirección:</b>
+        {contact.address}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Correo electrónico:</b> [ej. privacidad@labasecowork.com o info@labasecowork.com]
+        <b>Correo electrónico:</b>
+        {contact.email}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Teléfono:</b> +51 960270555
+        <b>Teléfono:</b>
+        {contact.phone}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
         <b>Sitio Web:</b>
         <a
-          href="[https://labase.pe/](https://labase.pe/)"
+          href={contact.website}
           target="_blank"
-          class="text-blue-600 hover:underline">labase.pe</a
+          class="text-blue-600 hover:underline">{contact.website}</a
         >
       </p>
     </section>

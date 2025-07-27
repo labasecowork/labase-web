@@ -1,5 +1,14 @@
 ---
-const { title, description, button1, button2, tag, image } = Astro.props;
+const {
+  title,
+  description,
+  button1,
+  button2,
+  tag,
+  image,
+  button1Href,
+  button2Href,
+} = Astro.props;
 
 // Generar IDs únicos para los elementos relacionados
 const sectionId = `info-section-${Math.random().toString(36).substr(2, 9)}`;
@@ -50,8 +59,8 @@ const descriptionId = `${sectionId}-description`;
         {
           button1 && (
             <a
-              href="#work-with-us"
-              class="rounded-full bg-stone-500 lg:px-12 sm:px-10 px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-stone-50 shadow-xs tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
+              href={button1Href}
+              class="rounded-full bg-stone-500 hover:bg-stone-400 lg:px-12 sm:px-10 px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-stone-50 shadow-xs tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
               role="button"
               aria-label={`${button1} - Acción principal`}
             >
@@ -62,8 +71,8 @@ const descriptionId = `${sectionId}-description`;
         {
           button2 && (
             <a
-              href="#work-with-us"
-              class="rounded-full bg-stone-800 lg:px-12 sm:px-10 px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-stone-50 shadow-xs tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
+              href={button2Href}
+              class="rounded-full bg-stone-800 hover:bg-stone-600 lg:px-12 sm:px-10 px-6 py-3 sm:py-4 text-xs sm:text-sm font-semibold text-stone-50 shadow-xs tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
               role="button"
               aria-label={`${button2} - Acción secundaria`}
             >

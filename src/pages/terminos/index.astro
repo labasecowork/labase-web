@@ -2,6 +2,7 @@
 import { CoreLayout } from "@/layouts";
 import { HeroSection } from "@/components/pages/shared";
 import { terminosMeta } from "@/config/meta";
+import { contact } from "@/config";
 ---
 
 <CoreLayout
@@ -17,7 +18,7 @@ import { terminosMeta } from "@/config/meta";
   <HeroSection
     title="TERMINOS Y CONDICIONES"
     tag="COMPRENDE NUESTROS"
-    image="https://images.pexels.com/photos/1411394/pexels-photo-1411394.jpeg"
+    image="/images/espacios/lockers/1.webp"
   />
   <div class="mx-auto px-12 py-24 max-w-4xl">
     <p
@@ -683,18 +684,20 @@ import { terminosMeta } from "@/config/meta";
         dudes en contactarnos a través de los siguientes canales:
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Dirección:</b> [Dirección completa de La Base Cowork en Huancayo, ej.
-        Jr. Puno 123, Huancayo, Junín, Perú]
+        <b>Dirección:</b>
+        {contact.address}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Correo electrónico:</b> [Tu correo de contacto aquí, ej. info@labasecowork.com]
+        <b>Correo electrónico:</b>
+        {contact.email}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Teléfono:</b> [Tu número de teléfono aquí, ej. +51 9XX XXX XXX]
+        <b>Número celular:</b>
+        {contact.phone}
       </p>
       <p class="text-sm sm:text-lg text-left leading-relaxed text-stone-700">
-        <b>Horario de Atención:</b> [Horario de atención de la recepción, ej. Lunes
-        a Viernes de 9:00 a.m. a 6:00 p.m.]
+        <b>Horario de Atención:</b>
+        {contact.schedule}
       </p>
     </section>
   </div>

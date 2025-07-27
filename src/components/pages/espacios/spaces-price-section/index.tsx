@@ -6,6 +6,7 @@ import NavigationButtons from "../../shared/button-arrow/button.tsx";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import { routes } from "@/config/index.ts";
 
 // Tipos de datos
 interface Property {
@@ -18,9 +19,7 @@ interface Property {
   environment: string;
 }
 
-interface SpacesPriceSectionProps {
-  title?: string;
-  subtitle?: string;
+interface Props {
   properties: Property[];
 }
 
@@ -28,11 +27,7 @@ interface PropertyCardProps {
   property: Property;
 }
 
-export default function SpacesPriceSection({
-  title = "NUESTROS ESPACIOS",
-  subtitle = "PRECIOS",
-  properties,
-}: SpacesPriceSectionProps) {
+export default function SpacesPriceSection({ properties }: Props) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
   const [swiper, setSwiper] = useState<SwiperType | null>(null);
 
@@ -81,14 +76,14 @@ export default function SpacesPriceSection({
 
             <div className="flex gap-4 mt-4 md:mt-0">
               <a
-                href="#"
-                className="bg-stone-500 rounded-full w-fit text-stone-100 py-3 sm:py-4 px-8 sm:px-12 transition-colors duration-200 text-xs sm:text-sm tracking-widest font-medium uppercase  "
+                href={routes.contact}
+                className="bg-stone-500 rounded-full w-fit text-stone-100 py-3 sm:py-4 px-8 sm:px-12 transition-colors duration-200 text-xs sm:text-sm tracking-widest font-medium uppercase hover:bg-stone-400 "
               >
                 CONTACTANOS
               </a>
               <a
-                href="#"
-                className="bg-stone-800 rounded-full w-fit text-stone-100 py-3 sm:py-4 px-8 sm:px-12 transition-colors duration-200 text-xs sm:text-sm tracking-widest font-medium uppercase  "
+                href={routes.contact}
+                className="bg-stone-800 rounded-full w-fit text-stone-100 py-3 sm:py-4 px-8 sm:px-12 transition-colors duration-200 text-xs sm:text-sm tracking-widest font-medium uppercase hover:bg-stone-600 "
               >
                 RESERVAR
               </a>

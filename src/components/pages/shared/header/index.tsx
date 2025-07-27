@@ -1,28 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { useScroll } from "../../../../hooks";
+import { routes } from "@/config";
 
 // TODO: Soon add blog, emprendimiento, mentoria.
 const menuItems = [
   {
     name: "INICIO",
-    href: "/",
+    href: routes.home,
   },
   {
     name: "ESPACIOS",
-    href: "/espacios",
+    href: routes.spaces,
   },
   {
     name: "NOSOTROS",
-    href: "/nosotros",
+    href: routes.about,
   },
   {
     name: "TESTIMONIOS",
-    href: "/testimonios",
+    href: routes.testimonial,
   },
   {
     name: "CONTACTO",
-    href: "/contactanos",
+    href: routes.contact,
   },
 ];
 
@@ -120,7 +121,7 @@ export default function Navbar({ isTransparent = true }: NavbarProps) {
           duration: 0.8,
           delay: 0.7,
           ease: "power2.out",
-        }
+        },
       );
     } else if (!isAnimating && panelsRef.current.length > 0) {
       setIsAnimating(true);
@@ -206,7 +207,7 @@ export default function Navbar({ isTransparent = true }: NavbarProps) {
                 </a>
               ))}
             </div>
-
+            {/*
             <button
               onClick={() => setIsOpen(true)}
               className="ml-4 cursor-pointer inline-flex items-center justify-center rounded-md p-2.5 text-white"
@@ -231,6 +232,7 @@ export default function Navbar({ isTransparent = true }: NavbarProps) {
                 />
               </svg>
             </button>
+            */}
           </div>
         </nav>
       </header>

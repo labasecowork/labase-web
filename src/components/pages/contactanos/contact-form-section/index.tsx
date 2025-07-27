@@ -4,6 +4,7 @@ import { z } from "zod";
 import { useEffect, useState } from "react";
 import apiClient from "@/services/";
 import ReCAPTCHA from "react-google-recaptcha";
+import { contact, social } from "@/config";
 
 const contactSchema = z.object({
   firstName: z.string().min(2, { message: "El nombre es obligatorio." }),
@@ -123,99 +124,120 @@ export default function ContactFormSection() {
             className="block text-white no-underline text-sm sm:text-base tracking-wider"
             aria-label="Llamar al teléfono: +51 960 270 555"
           >
-            +51 960 270 555
+            {contact.phone}
           </a>
           <a
             href="mailto:sarah@mcreynoldsrealestate.com"
             className="block text-white no-underline mb-8 text-sm sm:text-base tracking-wider"
             aria-label="Enviar correo a: contactolabase10@gmail.com"
           >
-            contactolabase10@gmail.com
+            {contact.email}
           </a>
           <address
             className="not-italic leading-relaxed text-sm sm:text-base tracking-wider"
             aria-label="Dirección física"
           >
-            Jr. Tacna 234, piso 10
+            {contact.address}
             <br />
-            Edificio Galena - Huancayo
+            Junin - Perú
           </address>
         </div>
-
-        <nav className="space-y-2 mt-12 sm:mt-16" aria-label="Redes sociales">
+        <div
+          className="space-y-2 mt-8"
+          role="region"
+          aria-label="Redes sociales"
+        >
           <a
-            href="#"
+            href={social.facebook.url}
+            target="_blank"
             className="flex items-center space-x-3 hover:text-stone-400 group transition-all duration-300"
             aria-label="Síguenos en Facebook"
           >
-            <span className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center">
+            <span
+              className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center"
+              role="img"
+              aria-hidden="true"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 320 512"
                 className="text-stone-100 size-4 fill-current"
                 aria-hidden="true"
-                role="img"
+                focusable="false"
               >
                 <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"></path>
               </svg>
             </span>
-            <span>@labasecowork</span>
+            <span>@{social.facebook.username}</span>
           </a>
           <a
-            href="#"
+            href={social.instagram.url}
+            target="_blank"
             className="flex items-center space-x-3 hover:text-stone-400 group transition-all duration-300"
             aria-label="Síguenos en Instagram"
           >
-            <span className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center">
+            <span
+              className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center"
+              role="img"
+              aria-hidden="true"
+            >
               <svg
                 className="text-stone-100 size-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
                 aria-hidden="true"
-                role="img"
+                focusable="false"
               >
                 <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
               </svg>
             </span>
-            <span>@labase</span>
+            <span>@{social.instagram.username}</span>
           </a>
           <a
-            href="#"
+            target="_blank"
+            href={social.linkedin.url}
             className="flex items-center space-x-3 hover:text-stone-400 group transition-all duration-300"
-            aria-label="Síguenos en YouTube"
+            aria-label="Síguenos en LinkedIn"
           >
-            <span className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center">
+            <span
+              className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center"
+              role="img"
+              aria-hidden="true"
+            >
               <svg
                 className="text-stone-100 size-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 576 512"
-                aria-hidden="true"
-                role="img"
+                viewBox="0 0 640 640"
               >
-                <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"></path>
+                <path d="M512 96L127.9 96C110.3 96 96 110.5 96 128.3L96 511.7C96 529.5 110.3 544 127.9 544L512 544C529.6 544 544 529.5 544 511.7L544 128.3C544 110.5 529.6 96 512 96zM231.4 480L165 480L165 266.2L231.5 266.2L231.5 480L231.4 480zM198.2 160C219.5 160 236.7 177.2 236.7 198.5C236.7 219.8 219.5 237 198.2 237C176.9 237 159.7 219.8 159.7 198.5C159.7 177.2 176.9 160 198.2 160zM480.3 480L413.9 480L413.9 376C413.9 351.2 413.4 319.3 379.4 319.3C344.8 319.3 339.5 346.3 339.5 374.2L339.5 480L273.1 480L273.1 266.2L336.8 266.2L336.8 295.4L337.7 295.4C346.6 278.6 368.3 260.9 400.6 260.9C467.8 260.9 480.3 305.2 480.3 362.8L480.3 480z"></path>
               </svg>
             </span>
-            <span>@coworklabase</span>
+            <span>@{social.linkedin.username}</span>
           </a>
           <a
-            href="#"
+            href={social.tiktok.url}
             className="flex items-center space-x-3 hover:text-stone-300 group transition-all duration-300"
+            target="_blank"
             aria-label="Síguenos en TikTok"
           >
-            <span className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center">
+            <span
+              className="size-10 rounded-full bg-stone-800 border border-stone-700 group-hover:bg-stone-600 group-hover:border-stone-600 transition-all duration-300 flex items-center justify-center"
+              role="img"
+              aria-hidden="true"
+            >
               <svg
                 className="text-stone-100 size-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
                 aria-hidden="true"
-                role="img"
+                focusable="false"
               >
                 <path d="M448 209.9a210.1 210.1 0 0 1 -122.8-39.3V349.4A162.6 162.6 0 1 1 185 188.3V278.2a74.6 74.6 0 1 0 52.2 71.2V0l88 0a121.2 121.2 0 0 0 1.9 22.2h0A122.2 122.2 0 0 0 381 102.4a121.4 121.4 0 0 0 67 20.1z"></path>
               </svg>
             </span>
-            <span>@labasecowork</span>
+            <span>@{social.tiktok.username}</span>
           </a>
-        </nav>
+        </div>
       </div>
       <form
         className="bg-white p-8 sm:p-14 shadow-sm"

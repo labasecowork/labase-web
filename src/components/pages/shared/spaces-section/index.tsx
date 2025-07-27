@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import "swiper/css";
 import "swiper/css/pagination";
+import { routes } from "@/config";
 
 const StyledSwiperWrapper = styled.div`
   .swiper-container {
@@ -235,7 +236,9 @@ const StyledSwiperWrapper = styled.div`
     position: absolute;
     top: 40%;
     transform: translateY(-50%);
-    transition: transform 0.4s ease, color 0.4s ease;
+    transition:
+      transform 0.4s ease,
+      color 0.4s ease;
     color: white;
     width: 8px;
     height: 15px;
@@ -533,7 +536,7 @@ export default function SpacesSection() {
             }}
             aria-label="Carrusel de espacios de La Base"
           >
-            {slides.map((slide, slideIndex) => (
+            {slides.map((slide, _) => (
               <SwiperSlide
                 key={slide.id}
                 role="group"
@@ -549,7 +552,7 @@ export default function SpacesSection() {
                   </h3>
                   <div className="slide-button-action w-full mt-14">
                     <a
-                      href="#"
+                      href={routes.contact}
                       className="rounded-full bg-transparent border border-stone-200 lg:px-12 px-6 py-3 lg:py-4 text-xs sm:text-sm font-semibold text-stone-200 shadow-xs hover:bg-stone-200 hover:text-stone-950 tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
                       role="button"
                       aria-label={slide.button}

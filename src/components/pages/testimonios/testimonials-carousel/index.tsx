@@ -7,6 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { routes } from "@/config/index.ts";
 
 // Tipos de datos
 interface Testimonial {
@@ -109,7 +110,7 @@ export default function TestimonialCarousel() {
           key={i}
           className={cn(
             "w-5 h-5",
-            i < rating ? "text-[#5D4C3C]" : "text-gray-300"
+            i < rating ? "text-[#5D4C3C]" : "text-gray-300",
           )}
           fill="currentColor"
           viewBox="0 0 20 20"
@@ -147,13 +148,13 @@ export default function TestimonialCarousel() {
           }}
           className="testimonial-swiper overflow-visible"
         >
-          {testimonials.map((testimonial: Testimonial, index: number) => (
+          {testimonials.map((testimonial: Testimonial, _) => (
             <SwiperSlide
               key={testimonial.id}
               className={cn("transition-transform duration-300")}
             >
               <div className="p-2">
-                <div className="h-auto min-h-[400px] flex flex-col bg-stone-100">
+                <div className="h-auto min-h-[400px] flex flex-col bg-stone-100 p-8">
                   <div className="pb-3">
                     <div className="flex">
                       {renderStars(testimonial.rating)}
@@ -187,10 +188,10 @@ export default function TestimonialCarousel() {
 
           {/* Botón extra */}
           <a
-            href="#"
-            className="rounded-full bg-stone-500 px-10 py-3 md:py-4 text-sm font-semibold text-white shadow-xs hover:bg-stone-500 hover:text-white tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400 w-full sm:w-fit text-center uppercase"
+            href={routes.contact}
+            className="rounded-full bg-stone-500 px-10 py-3 md:py-4 text-sm font-semibold text-white shadow-xs hover:bg-stone-400 hover:text-white tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400 w-full sm:w-fit text-center uppercase"
           >
-            HACER UNA RESERVA
+            CONTACTANOS
           </a>
         </div>
       </div>

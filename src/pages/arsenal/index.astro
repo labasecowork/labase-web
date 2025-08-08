@@ -1,0 +1,28 @@
+---
+import { CoreLayout } from "@/layouts";
+import { arsenalMeta } from "@/config/meta";
+import {
+  HeroSection,
+  AboutArsenal,
+  CoffiSection,
+  MenuSection,
+  GallerySection,
+} from "@/components/pages/arsenal";
+---
+
+<CoreLayout
+  title={arsenalMeta.title}
+  description={arsenalMeta.description}
+  keywords={arsenalMeta.keywords}
+  canonical={arsenalMeta.canonical}
+  image={arsenalMeta.image}
+  type={arsenalMeta.type}
+  robots={arsenalMeta.robots}
+  structuredData={arsenalMeta.structuredData}
+>
+  <HeroSection />
+  <AboutArsenal />
+  <CoffiSection />
+  <MenuSection />
+  <GallerySection />
+</CoreLayout>

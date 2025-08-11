@@ -1,10 +1,8 @@
 name: Deploy labase-web (on PR merge to main)
-
 on:
   pull_request:
     types: [closed]
     branches: [ main ]
-
 jobs:
   deploy:
     if: github.event.pull_request.merged == true
@@ -21,4 +19,4 @@ jobs:
           username: root
           key: ${{ secrets.SSH_KEY }}
           script: |
-            pm2 deploy /root/labase-web/ecosystem.config.js production
+            pm2 deploy /root/labase-web/ecosystem.config.cjs production

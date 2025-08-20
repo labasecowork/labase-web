@@ -10,3 +10,4 @@ export { blogMeta } from "./blog/index";
 export { terminosMeta } from "./terminos/index";
 export { politicasMeta } from "./politicas/index";
 export { notFoundMeta } from "./404/index";
+export { arsenalMeta } from "./arsenal/index";

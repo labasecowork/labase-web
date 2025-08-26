@@ -11,3 +11,7 @@ export { terminosMeta } from "./terminos/index";
 export { politicasMeta } from "./politicas/index";
 export { notFoundMeta } from "./404/index";
 export { arsenalMeta } from "./arsenal/index";
+export { cafesMeta } from "./cafes/index";
+export { desayunosMeta } from "./desayunos/index";
+export { jugosMeta } from "./jugos/index";
+export { postresMeta } from "./postres/index";

@@ -49,6 +49,8 @@ const faqs = [
       "Generalmente, emprendedores, startups o negocios en etapas iniciales que buscan apoyo para desarrollar su idea de negocio o acelerar su crecimiento pueden acceder a una incubadora.",
   },
 ];
+const faqDescription =
+  "Aquí puedes resolver todas tus dudas sobre nuestro modelo de emprendimiento, fases de incubación y el apoyo que ofrecemos a los emprendedores.";
 ---
 
 <CoreLayout
@@ -69,5 +71,5 @@ const faqs = [
   <PhraseSection />
   <AccelerationSection />
   <CasosExitoSection />
-  <QaSection faqs={faqs} />
+  <QaSection faqs={faqs} description={faqDescription} />
 </CoreLayout>

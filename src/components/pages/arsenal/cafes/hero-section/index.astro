@@ -7,17 +7,20 @@ interface Props {
 }
 
 const coffeeImages = [
-  "first-coffi.webp",
-  "second-coffi.webp",
-  "tree-coffi.webp",
-  "four-coffi.webp",
+  "/images/arsenal/cafes/1.webp",
+  "/images/arsenal/cafes/2.webp",
+  "/images/arsenal/cafes/3.webp",
+  "/images/arsenal/cafes/4.webp",
 ];
 ---
 
 <section class="relative h-screen w-full overflow-hidden">
   <img
-    src="/images/arsenal/hero-coffi.webp"
+    src="/images/arsenal/cafes/hero.webp"
     class="absolute top-0 left-0 w-full h-full object-cover"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="high"
   />
   <div class="absolute inset-0 bg-black/50"></div>
   <div
@@ -25,7 +28,7 @@ const coffeeImages = [
   >
     <div class="mb-8">
       <p class="text-stone-100 text-sm font-light tracking-[0.3em] uppercase">
-        Nuestro Arsenal
+        Nuestra Selección
       </p>
     </div>
     <h1
@@ -54,10 +57,12 @@ const coffeeImages = [
                   <div class="slider-content-align-center w-full h-full flex items-center justify-center">
                     <div class="slider-image-wrapper w-full h-full flex items-center justify-center">
                       <img
-                        src={`/images/arsenal/${image}`}
+                        src={`/images/arsenal/cafes/${index + 1}.webp`}
                         alt={`Coffee ${index + 1}`}
                         class="slider-image w-auto h-auto max-w-full max-h-full object-contain"
                         loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                        fetchpriority="high"
                       />
                     </div>
                   </div>
@@ -164,10 +169,10 @@ const coffeeImages = [
 
       private preloadImages(): void {
         const imageUrls: string[] = [
-          "/images/arsenal/first-coffi.webp",
-          "/images/arsenal/second-coffi.webp",
-          "/images/arsenal/tree-coffi.webp",
-          "/images/arsenal/four-coffi.webp",
+          "/images/arsenal/cafes/1.webp",
+          "/images/arsenal/cafes/2.webp",
+          "/images/arsenal/cafes/3.webp",
+          "/images/arsenal/cafes/4.webp",
         ];
         imageUrls.forEach((url) => {
           const img = new Image();

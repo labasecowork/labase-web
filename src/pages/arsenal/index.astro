@@ -1,13 +1,13 @@
 ---
 import { CoreLayout } from "@/layouts";
 import { arsenalMeta } from "@/config/meta";
+import { GallerySection, MenuSection } from "@/components/pages/arsenal";
 import {
   HeroSection,
-  AboutArsenal,
-  CoffiSection,
-  MenuSection,
-  GallerySection,
-} from "@/components/pages/arsenal";
+  TitleSection,
+  InfoSection,
+  CtaSection,
+} from "@/components/pages/shared";
 ---
 
 <CoreLayout
@@ -20,9 +20,32 @@ import {
   robots={arsenalMeta.robots}
   structuredData={arsenalMeta.structuredData}
 >
-  <HeroSection />
-  <AboutArsenal />
-  <CoffiSection />
+  <HeroSection
+    tag="Disfruta de nuestro"
+    title="Arsenal"
+    image="/images/espacios/arsenal/4.webp"
+  />
+  <InfoSection
+    tag="Conoce a nuestro chef"
+    title="Pasión y sabor en cada plato"
+    description="En Arsenal, nuestro chef lidera la creación de cada plato con dedicación y creatividad. Cada receta está cuidadosamente elaborada para ofrecerte una experiencia gastronómica única que combina tradición y frescura."
+    image="/images/arsenal/about.webp"
+    button1="Ver Menús"
+    button1Href="#menus"
+  />
+
+  <TitleSection
+    className="bg-white"
+    tag="Descubre"
+    title="Nuestros menús"
+    description="Un espacio para relajarte, disfrutar de una buena charla y acompañarla con café de especialidad preparado con dedicación, postres irresistibles que endulzan el momento, jugos frescos llenos de energía y desayunos que combinan sabor y calidad para empezar bien el día."
+  />
   <MenuSection />
   <GallerySection />
+  <CtaSection
+    title="Ven y disfruta en nuestro Arsenal"
+    description="Descubre nuestros desayunos, cafés, jugos y postres recién preparados. Visítanos y vive la experiencia de sabores únicos en cada sorbo y bocado."
+    button="Visítanos Ahora"
+    buttonHref="/contactanos"
+  />
 </CoreLayout>

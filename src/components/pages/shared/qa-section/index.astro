@@ -6,9 +6,10 @@ interface FAQ {
 
 interface Props {
   faqs: FAQ[];
+  description: string;
 }
 
-const { faqs } = Astro.props;
+const { faqs, description } = Astro.props;
 ---
 
 <div role="region" aria-label="Sección de preguntas frecuentes">
@@ -30,10 +31,7 @@ const { faqs } = Astro.props;
         <p
           class={`text-stone-600 max-w-3xl mt-6 text-left text-sm sm:text-base tracking-wider`}
         >
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia,
-          sit! Ducimus atque eligendi, explicabo obcaecati pariatur velit magnam
-          vitae totam aspernatur sequi quos. Aut nisi, inventore quod libero
-          voluptatum eaque.
+          {description}
         </p>
       </div>
       <div class="w-full grid grid-cols-1 md:grid-cols-2 mt-12 sm:mt-24 gap-8">
@@ -106,10 +104,12 @@ const { faqs } = Astro.props;
           }
         </dl>
         <img
-          src="https://images.pexels.com/photos/3215596/pexels-photo-3215596.jpeg"
+          src="/images/emprendimiento/5.jpg"
           alt="Personas colaborando en una reunión de trabajo"
-          class="w-full object-cover h-[600px] sm:h-full"
+          class="w-full object-cover h-[600px] sm:h-full brightness-50"
           loading="lazy"
+          decoding="async"
+          fetchpriority="low"
           role="img"
           aria-hidden="true"
         />
@@ -185,7 +185,7 @@ const { faqs } = Astro.props;
     private togglePanel(button: HTMLButtonElement) {
       const index = button.getAttribute("data-faq-button");
       const panel = document.querySelector(
-        `[data-faq-panel="${index}"]`
+        `[data-faq-panel="${index}"]`,
       ) as HTMLElement;
 
       if (!panel) return;

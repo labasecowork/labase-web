@@ -1,4 +1,4 @@
-export { default as Header } from "./header/index.tsx";
+export { default as Header } from "./header/header";
 export { default as HeroSection } from "./hero-section/index.astro";
 export { default as QaSection } from "./qa-section/index.astro";
 export { default as VideoCta } from "./video-cta/index.astro";
@@ -12,3 +12,4 @@ export { default as StatsSection } from "./stats-section/index.astro";
 export { default as TestimonialsSection } from "./testimonials-section/index.astro";
 export { default as BenefitsSection } from "./benefits-section/index.astro";
 export { default as Footer } from "./footer/index.astro";
+export { default as DecorativeLine } from "./decorative-line/index.astro";

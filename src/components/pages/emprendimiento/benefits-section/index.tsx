@@ -59,8 +59,8 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
 }
 
 export default function TestimonialsSection({
-  title = "HEAR WHAT PEOPLE ARE",
-  subtitle = "SAYING ABOUT US",
+  title = "LO QUE DICEN NUESTROS",
+  subtitle = "EMPRENDEDORES",
   testimonials,
 }: TestimonialsSectionProps) {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -98,7 +98,7 @@ export default function TestimonialsSection({
           <h3 className="text-sm sm:text-base md:text-lg text-stone-600 uppercase tracking-widest font-medium">
             {title}
           </h3>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mt-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif mt-2 text-stone-900">
             {subtitle}
           </h2>
         </div>
@@ -149,7 +149,7 @@ export default function TestimonialsSection({
               href="#"
               className="bg-stone-500 rounded-full text-stone-100 py-3 px-6 sm:py-4 sm:px-10 transition-colors duration-200 text-xs sm:text-sm md:text-base tracking-wider font-medium uppercase w-full text-center md:w-auto"
             >
-              READ ALL ZILLOW REVIEWS
+              Ver todos los testimonios
             </a>
           </div>
         </div>

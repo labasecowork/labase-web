@@ -1,0 +1,333 @@
+import React from "react";
+import { socialLinksData, contactInfo, secondaryLinks } from "../../data";
+
+const SocialIcon: React.FC<{ platform: string; className?: string }> = ({
+  platform,
+  className = "",
+}) => {
+  switch (platform) {
+    case "facebook":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512"
+          className={className}
+        >
+          <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"></path>
+        </svg>
+      );
+    case "instagram":
+      return (
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+        >
+          <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+        </svg>
+      );
+    case "youtube":
+      return (
+        <svg
+          className={className}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 576 512"
+        >
+          <path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"></path>
+        </svg>
+      );
+    default:
+      return null;
+  }
+};
+
+export const DesktopMenu: React.FC = () => {
+  return (
+    <>
+      {/* Sección 1 */}
+      <div className="flex flex-col justify-center items-start px-6">
+        <div className="flex flex-col space-y-6">
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-8 hover:ml-12"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Nuestros espacios
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-0 hover:ml-4"
+            role="menuitem"
+            tabIndex={0}
+          >
+            ¿Por qué elegirnos?
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-6 hover:ml-10"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Servicios
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-2 hover:ml-6"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Comunidad
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-9 hover:ml-13"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Instalaciones
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-1 hover:ml-5"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Ubicación
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-7 hover:ml-11"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Precios
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-3 hover:ml-7"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Horarios
+          </a>
+        </div>
+      </div>
+
+      {/* Sección 2 */}
+      <div className="flex flex-col justify-center items-start px-4">
+        <div className="flex flex-col space-y-6">
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-4 hover:ml-8"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Guías de la comunidad
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-10 hover:ml-14"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Alquilar un espacio
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-2 hover:ml-6"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Eventos
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-8 hover:ml-12"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Networking
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-1 hover:ml-5"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Workshops
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-9 hover:ml-13"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Conferencias
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-3 hover:ml-7"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Capacitación
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-7 hover:ml-11"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Recursos
+          </a>
+        </div>
+      </div>
+
+      {/* Sección 3 */}
+      <div className="flex flex-col justify-center items-start px-6">
+        <div className="flex flex-col space-y-6">
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-6 hover:ml-10"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Ofrecer un espacio
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-0 hover:ml-4"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Programas de incubación
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-8 hover:ml-12"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Inversión
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-3 hover:ml-7"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Mentores
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-9 hover:ml-13"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Startups
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-2 hover:ml-6"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Aceleración
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-7 hover:ml-11"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Pitch Deck
+          </a>
+          <a
+            href="#"
+            className="text-3xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-1 hover:ml-5"
+            role="menuitem"
+            tabIndex={0}
+          >
+            Emprendedores
+          </a>
+        </div>
+      </div>
+
+      {/* Sección 4  */}
+      <div
+        className="flex flex-col justify-center border-l border-stone-700 pl-12 py-16"
+        role="complementary"
+        aria-label="Enlaces adicionales y contacto"
+      >
+        <div className="flex flex-col space-y-6 mb-12">
+          <div
+            className="flex flex-col space-y-4 w-full"
+            role="menu"
+            aria-label="Enlaces secundarios"
+          >
+            {secondaryLinks.map((link, index) => (
+              <a
+                key={index}
+                href="#"
+                className="text-2xl font-secondary text-stone-100 hover:opacity-80 transition-opacity text-left block w-full"
+                role="menuitem"
+                tabIndex={0}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+        </div>
+        {/* Redes sociales y contacto en desktop */}
+        <div
+          className="flex flex-col space-y-8"
+          role="contentinfo"
+          aria-label="Redes sociales y contacto"
+        >
+          <div
+            className="flex space-x-4"
+            role="list"
+            aria-label="Redes sociales"
+          >
+            {socialLinksData.map((social, index) => (
+              <a
+                key={index}
+                href={social.href}
+                className="size-10 rounded-full bg-stone-800 border border-stone-700 hover:bg-stone-600 hover:border-stone-600 transition-all duration-300 flex items-center justify-center"
+                role="listitem"
+                aria-label={social.label}
+              >
+                <SocialIcon
+                  platform={social.platform}
+                  className="text-stone-100 size-4 fill-current"
+                />
+              </a>
+            ))}
+          </div>
+
+          <div
+            className="text-stone-50 text-left"
+            role="contentinfo"
+            aria-label="Información de contacto"
+          >
+            <p className="text-base">
+              <span className="sr-only">Teléfono: </span>
+              {contactInfo.phone}
+            </p>
+            <p className="text-base">
+              <span className="sr-only">Correo electrónico: </span>
+              {contactInfo.email}
+            </p>
+            <address className="text-base mt-2 not-italic">
+              <span className="sr-only">Dirección: </span>
+              Jr. Tacna 234, piso 10
+              <br />
+              Edificio Galena - Huancayo
+            </address>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};

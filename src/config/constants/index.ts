@@ -1,11 +1,11 @@
 export const contact = {
   companyName: "La Base Cowork",
   website: "https://www.labase.pe",
-  address: "Calle Falsa 123, Ciudad Ejemplo",
-  phone: "+34 123 456 789",
-  phone2: "+34 123 456 789",
+  address: "Edificio Galena 234 | 10mo piso",
+  phone: "+51 960 270 555",
+  phone2: "",
   email: "labase.developers@gmail.com",
-  email2: "labase.developers@gmail.com",
+  email2: "contactolabase10@gmail.com",
   schedule: "Lunes a sábados: 9:00am - 7:00pm",
 };
 

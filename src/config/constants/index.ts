@@ -1,9 +1,10 @@
 export const contact = {
   companyName: "La Base Cowork",
   website: "https://www.labase.pe",
-  address: "Edificio Galena 234 | 10mo piso",
+  address1: "Edificio Galena 234 | 10mo piso",
+  address2: "Huancayo, Junín, Perú",
   phone: "+51 960 270 555",
-  phone2: "",
+  phone2: "+51 967 555 555",
   email: "labase.developers@gmail.com",
   email2: "contactolabase10@gmail.com",
   schedule: "Lunes a sábados: 9:00am - 7:00pm",

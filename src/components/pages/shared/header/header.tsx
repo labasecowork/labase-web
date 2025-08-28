@@ -68,7 +68,7 @@ const Header: React.FC<NavbarProps> = ({ isTransparent = true }) => {
           role="menu"
           aria-orientation="vertical"
         >
-          <div className="mx-auto w-full h-full grid grid-cols-1 lg:grid-cols-4">
+          <div className="mx-auto w-full h-full grid grid-cols-1 lg:grid-cols-[1fr_auto]">
             {isMobile ? <MobileMenu /> : <DesktopMenu />}
           </div>
         </div>

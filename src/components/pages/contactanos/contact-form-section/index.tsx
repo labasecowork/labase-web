@@ -137,9 +137,9 @@ export default function ContactFormSection() {
             className="not-italic leading-relaxed text-sm sm:text-base tracking-wider"
             aria-label="Dirección física"
           >
-            {contact.address}
+            {contact.address1}
             <br />
-            Junin - Perú
+            {contact.address2}
           </address>
         </div>
         <div

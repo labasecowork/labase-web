@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import apiClient from "@/services/";
+import { AxiosError } from "axios";
 
 const newsletterSchema = z.object({
   name: z
@@ -18,7 +19,7 @@ type NewsletterFormValues = z.infer<typeof newsletterSchema>;
 export const NewsletterForm = () => {
   const [submissionStatus, setSubmissionStatus] = useState<{
     message: string;
-    success: boolean | null;
+    success: boolean;
   } | null>(null);
 
   const {
@@ -44,8 +45,9 @@ export const NewsletterForm = () => {
     data.name = toTitleCase(data.name);
 
     try {
+      console.log(data);
       const response = await apiClient.post("/newsletter/subscribe", data);
-
+      console.log(response);
       if (response.status === 200 || response.status === 201) {
         setSubmissionStatus({
           message: "¡Gracias por unirte! Te contactaremos pronto.",
@@ -53,15 +55,17 @@ export const NewsletterForm = () => {
         });
         reset();
       } else {
+        console.log("El servidor respondió con un estado inesperado.");
         throw new Error("El servidor respondió con un estado inesperado.");
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      console.log(error);
       let errorMessage =
         "Hubo un error al enviar la solicitud. Inténtalo de nuevo.";
 
-      if (error.response) {
-        const status = error.response.status;
-        const responseData = error.response.data;
+      if (error instanceof AxiosError) {
+        const status = error.response?.status;
+        const responseData = error.response?.data;
 
         if (
           status === 400 &&
@@ -75,7 +79,7 @@ export const NewsletterForm = () => {
           errorMessage =
             "Ocurrió un problema en el servidor. Por favor, intenta más tarde.";
         }
-      } else if (error.request) {
+      } else if (error instanceof Error) {
         errorMessage =
           "No se pudo conectar con el servidor. Revisa tu conexión a internet.";
       }
@@ -88,72 +92,103 @@ export const NewsletterForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-      <h2 className="text-2xl font-semibold text-center text-stone-100 mb-4 font-secondary">
-        Sé parte de La Base
-      </h2>
-
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex-col w-full h-full grid grid-cols-1 lg:grid-cols-2"
+    >
       <div>
-        <label
-          htmlFor="name"
-          className="block font-medium text-stone-300 text-left mb-2"
-        >
-          Nombre
-        </label>
-        <input
-          id="name"
-          type="text"
-          {...register("name")}
-          className={`mt-1 block w-full bg-stone-800 border rounded-md p-2 text-stone-100 focus:ring-stone-500 focus:border-stone-500 outline-none ${
-            errors.name ? "border-red-500" : "border-stone-600"
-          }`}
+        <img
+          src="/images/espacios/base_operativa/4.webp"
+          alt="La Base Cowork"
+          className="w-full h-full object-cover"
         />
-        {errors.name && (
-          <p className="mt-1 text-sm text-red-500 text-left">
-            {errors.name.message}
-          </p>
-        )}
       </div>
-
-      <div>
-        <label
-          htmlFor="email"
-          className="block font-medium text-stone-300 text-left mb-2"
-        >
-          Correo Electrónico
-        </label>
-        <input
-          id="email"
-          type="email"
-          {...register("email")}
-          className={`mt-1 block w-full bg-stone-800 border rounded-md p-2 text-stone-100 focus:ring-stone-500 focus:border-stone-500 outline-none ${
-            errors.email ? "border-red-500" : "border-stone-600"
-          }`}
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-500 text-left">
-            {errors.email.message}
+      <div className="bg-white p-8 lg:p-24 flex flex-col items-center justify-center">
+        <div className="w-full max-w-lg mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold uppercase text-stone-900 mb-4 font-secondary">
+            SÉ PARTE DE LA BASE
+            <br />
+            COWORK
+          </h2>
+          <p className="text-stone-500 text-left mb-8 text-sm">
+            Regístrate para recibir noticias y actualizaciones sobre nuestros
+            servicios.
           </p>
-        )}
+
+          <div className="mb-4">
+            <label
+              htmlFor="name"
+              className="block font-medium text-stone-700 text-left mb-2 text-sm"
+            >
+              Nombre completo
+            </label>
+            <input
+              id="name"
+              type="text"
+              placeholder="Ej. Juan Pérez"
+              {...register("name")}
+              className={`mt-1 rounded-md block w-full bg-white border text-sm px-4 py-3 text-stone-700 focus:ring-stone-500 focus:border-stone-500 outline-none placeholder:text-stone-400 ${
+                errors.name ? "border-rose-800" : "border-stone-200"
+              }`}
+            />
+            {errors.name && (
+              <p className="mt-1 text-sm text-rose-800 text-left">
+                {errors.name.message}
+              </p>
+            )}
+          </div>
+
+          <div className="mb-4">
+            <label
+              htmlFor="email"
+              className="block font-medium text-stone-700 text-left mb-2 text-sm"
+            >
+              Correo electrónico
+            </label>
+            <input
+              id="email"
+              type="email"
+              placeholder="Ej. juanperez@gmail.com"
+              {...register("email")}
+              className={`mt-1 rounded-md block w-full bg-white border text-sm px-4 py-3 text-stone-700 focus:ring-stone-500 focus:border-stone-500 outline-none placeholder:text-stone-400 ${
+                errors.email ? "border-rose-800" : "border-stone-200"
+              }`}
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-rose-800 text-left">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+
+          <p className="text-sm text-stone-500 text-left mb-4">
+            Al suscribirte, aceptas nuestras{" "}
+            <a href="/politicas" className="text-stone-700 underline">
+              políticas de privacidad
+            </a>
+            .
+          </p>
+          {submissionStatus && (
+            <p
+              className={`mt-4 text-center text-sm font-medium ${
+                submissionStatus.success
+                  ? "text-emerald-800 bg-emerald-800/10 px-4 py-3 rounded-md"
+                  : "text-rose-800 bg-rose-800/10 px-4 py-3 rounded-md font-medium"
+              }`}
+            >
+              {submissionStatus.message}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="mt-4 w-full uppercase tracking-widest text-sm bg-stone-600 hover:bg-stone-700 text-white font-medium py-4 px-6 rounded-full transition-colors duration-200"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? "Suscribiéndote..." : "Suscribirme"}
+          </button>
+        </div>
       </div>
-
-      <button
-        type="submit"
-        className="mt-4 w-full bg-stone-600 hover:bg-stone-700 text-white font-medium py-3 px-6 rounded-md transition-colors duration-200"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? "Enviando..." : "Enviar Solicitud"}
-      </button>
-
-      {submissionStatus && (
-        <p
-          className={`mt-4 text-center text-sm ${
-            submissionStatus.success ? "text-green-500" : "text-red-500"
-          }`}
-        >
-          {submissionStatus.message}
-        </p>
-      )}
     </form>
   );
 };

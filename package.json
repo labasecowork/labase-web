@@ -36,6 +36,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@astrojs/language-server": "^2.15.4",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
     "@types/react-google-recaptcha": "^2.1.9",

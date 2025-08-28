@@ -1,5 +1,7 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import * as React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/utilities";
 
 export interface ModalProps {
@@ -11,35 +13,51 @@ export interface ModalProps {
 
 const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   ({ isOpen, onClose, children, className }, ref) => {
-    if (!isOpen) return null;
-    React.useEffect(() => {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+      setMounted(true);
+      return () => setMounted(false);
+    }, []);
+
+    useEffect(() => {
+      if (!isOpen) return;
+
       const handleEscape = (event: KeyboardEvent) => {
         if (event.key === "Escape") {
           onClose();
         }
       };
-      document.addEventListener("keydown", handleEscape);
-      return () => document.removeEventListener("keydown", handleEscape);
-    }, [onClose]);
 
-    return (
+      // Prevenir scroll del body cuando el modal está abierto
+      document.body.style.overflow = "hidden";
+
+      document.addEventListener("keydown", handleEscape);
+
+      return () => {
+        document.removeEventListener("keydown", handleEscape);
+        document.body.style.overflow = "unset";
+      };
+    }, [isOpen, onClose]);
+
+    if (!isOpen || !mounted) return null;
+
+    // Crear el portal al body del documento
+    const modalContent = (
       <div
         ref={ref}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+        className="fixed inset-0 flex items-center justify-center bg-black/80 w-full z-50 overflow-y-auto"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
       >
         <div
-          className={cn(
-            "relative w-full max-w-md p-8 bg-stone-900 border border-stone-700 rounded-lg shadow-lg text-stone-100",
-            className
-          )}
+          className={cn("relative w-full h-full", className)}
           onClick={(e) => e.stopPropagation()}
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-stone-400 hover:text-stone-100"
+            className="absolute top-4 right-4 text-stone-400 hover:text-stone-100 transition-colors"
             aria-label="Cerrar modal"
           >
             ✕
@@ -48,7 +66,10 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         </div>
       </div>
     );
-  }
+
+    // Usar createPortal para renderizar fuera de la jerarquía normal
+    return createPortal(modalContent, document.body);
+  },
 );
 
 Modal.displayName = "Modal";

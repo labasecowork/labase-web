@@ -15,8 +15,9 @@ export const MobileMenu: React.FC = () => {
 
   return (
     <>
-      <div className="col-span-1 lg:col-span-3 flex flex-col px-6 lg:px-8 pt-16 lg:pt-20">
-        <div className="space-y-4 overflow-y-auto max-h-[calc(100vh-200px)] lg:max-h-[calc(100vh-200px)]">
+      <div className="flex flex-col px-6 lg:px-8 pt-16 lg:pt-20">
+        <div className="space-y-4 overflow-y-auto">
+          {/*
           {accordionSections.map((section, index) => (
             <div key={index} className="pb-4">
               <button
@@ -65,7 +66,7 @@ export const MobileMenu: React.FC = () => {
                 </div>
               </div>
             </div>
-          ))}
+          ))} */}
 
           <div className="border-t border-stone-700 pt-6 mt-6">
             <div className="space-y-3 mb-6">
@@ -85,7 +86,7 @@ export const MobileMenu: React.FC = () => {
         </div>
       </div>
 
-      <div className="col-span-1 lg:col-span-3">
+      <div className="absolute bottom-0 w-full">
         <MobileFooter />
       </div>
     </>

@@ -1,3 +1,8 @@
+---
+import { NewsletterForm } from "@/components/shared";
+import { ModalTrigger } from "@/components/ui/modal";
+---
+
 <section
   class="relative isolate overflow-hidden pt-14 h-screen flex items-center justify-center"
   role="banner"
@@ -63,7 +68,7 @@
         >
           Transforma tu idea en un negocio exitoso en 3 fases estratégicas.
         </p>
-        <div role="form" aria-label="Formulario de registro">
+        <!-- <div role="form" aria-label="Formulario de registro">
           <label for="email-input" class="sr-only">Correo electrónico</label>
           <input
             type="email"
@@ -73,19 +78,20 @@
             class="w-full max-w-2xl mx-auto bg-transparent border border-stone-200/30 px-4 py-3 text-stone-100 placeholder:text-stone-100/50 focus:outline-none focus:ring-2 focus:ring-stone-200/50 transition-all duration-300 mt-8 text-xs sm:text-sm"
             aria-required="true"
           />
-        </div>
+        </div> -->
+
         <div
           class="mt-12 flex items-center justify-center gap-x-6"
           role="navigation"
         >
-          <a
-            href="#"
-            class="rounded-full uppercase border border-stone-200 px-6 sm:px-10 py-3 sm:py-4 text-xs sm:text-sm font-semibold shadow-xs bg-stone-200 hover:bg-stone-200/80 text-stone-950 tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
-            role="button"
-            aria-label="Comenzar proceso de emprendimiento"
-          >
-            Comenzar ahora
-          </a>
+
+          <ModalTrigger
+          client:load
+          triggerText="COMENZAR AHORA"
+          triggerClassName="rounded-full bg-transparent border border-stone-200 lg:px-12 sm:px-10 px-6 py-3 lg:py-4 text-xs sm:text-sm font-semibold text-stone-200 shadow-xs hover:bg-stone-200 hover:text-stone-950 tracking-wider transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-400"
+        >
+          <NewsletterForm client:load />
+        </ModalTrigger>
         </div>
       </div>
     </div>

@@ -6,4 +6,7 @@ export const routes = {
   contact: "/contactanos",
   terms: "/terminos",
   policy: "/politicas",
+  arsenal: "/arsenal",
+  emprendimiento: "/emprendimiento",
+  platform: "https://app.labase.pe",
 };

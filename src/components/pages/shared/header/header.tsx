@@ -47,7 +47,7 @@ const Header: React.FC<NavbarProps> = ({ isTransparent = true }) => {
 
       <div
         id={menuId}
-        className={`fixed inset-0 z-40 ${
+        className={`fixed inset-0 z-50 ${
           isOpen || isAnimating ? "block" : "hidden"
         }`}
         role="dialog"
@@ -64,7 +64,7 @@ const Header: React.FC<NavbarProps> = ({ isTransparent = true }) => {
 
         <div
           ref={contentRef}
-          className="fixed inset-0 z-[50] flex items-center justify-center h-full w-full overflow-auto"
+          className="fixed inset-0 z-[60] flex items-center justify-center h-full w-full overflow-auto"
           role="menu"
           aria-orientation="vertical"
         >

@@ -1,5 +1,6 @@
 import React from "react";
 import { socialLinksData, contactInfo, secondaryLinks } from "../../data";
+import { routes, social } from "@/config";
 
 const SocialIcon: React.FC<{ platform: string; className?: string }> = ({
   platform,
@@ -48,15 +49,15 @@ export const DesktopMenu: React.FC = () => {
       <div className="flex flex-col justify-center items-start px-36 w-full">
         <div className="flex flex-col space-y-10">
           <a
-            href="#"
+            href={routes.about}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-8 hover:ml-12"
             role="menuitem"
             tabIndex={0}
           >
-            Enprendimiento
+            Sobre Nosotros
           </a>
           <a
-            href="#"
+            href={routes.arsenal}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-0 hover:ml-4"
             role="menuitem"
             tabIndex={0}
@@ -64,24 +65,25 @@ export const DesktopMenu: React.FC = () => {
             El arsenal
           </a>
           <a
-            href="#"
+            href={routes.emprendimiento}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-6 hover:ml-10"
             role="menuitem"
             tabIndex={0}
           >
-            Nuestras mentorias
+            Emprendimiento
           </a>
           <a
-            href="#"
+            href={routes.testimonial}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-2 hover:ml-6"
             role="menuitem"
             tabIndex={0}
           >
-            Nuestra comunidad
+            Testimonios
           </a>
           <a
-            href="#"
-            className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-9 hover:ml-13"
+            target="_blank"
+            href={social.linkedin.url}
+            className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-9 hover:ml-10"
             role="menuitem"
             tabIndex={0}
           >
@@ -106,12 +108,12 @@ export const DesktopMenu: React.FC = () => {
               {secondaryLinks.map((link, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={link.href}
                   className="text-2xl font-secondary text-stone-100 hover:opacity-80 transition-opacity text-left block w-full"
                   role="menuitem"
                   tabIndex={0}
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
             </div>

@@ -1,3 +1,4 @@
+import { routes } from "@/config";
 import type { ContactInfo } from "../types";
 
 export const socialLinksData = [
@@ -25,10 +26,24 @@ export const contactInfo: ContactInfo = {
 };
 
 export const secondaryLinks = [
-  "Testimonios",
-  "Mentoria",
-  "Buscar espacios",
-  "Oportunidades",
-  "Blogs",
-  "Contáctanos",
+  {
+    href: routes.home,
+    label: "Inicio",
+  },
+  {
+    href: routes.about,
+    label: "Acerca",
+  },
+  {
+    href: routes.spaces,
+    label: "Nuestros espacios",
+  },
+  {
+    href: routes.testimonial,
+    label: "Testimonios",
+  },
+  {
+    href: routes.platform,
+    label: "Plataforma",
+  },
 ];

@@ -5,9 +5,11 @@ export const contact = {
   address2: "Huancayo, Junín, Perú",
   phone: "+51 960 270 555",
   phone2: " ",
+  chatbot: "https://wa.me/573178520000",
   email: "labase.developers@gmail.com",
   email2: "contactolabase10@gmail.com",
   schedule: "Lunes a sábados: 9:00am - 7:00pm",
+  google: "https://share.google/Daoe7CNuv6Vm0LS7G",
 };
 
 export const social = {

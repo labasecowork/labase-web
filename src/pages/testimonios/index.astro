@@ -6,6 +6,7 @@ import {
   GoogleReview,
 } from "@/components/pages/testimonios";
 import { testimoniosMeta } from "@/config/meta";
+import { contact } from "@/config";
 ---
 
 <CoreLayout
@@ -34,7 +35,7 @@ import { testimoniosMeta } from "@/config/meta";
     buttonText="Reproduce la experiencia"
   />
 
-  <GoogleReview buttonLink="https://share.google/i5f2Hf1rArVJRXddp" />
+  <GoogleReview buttonLink={contact.google} />
   <CtaSection
     title="¿Listo para unirte a la comunidad?"
     description="Descubre cómo La Base puede ser el trampolín para tu éxito. Únete a nosotros y transforma tu forma de trabajar."

@@ -6,7 +6,7 @@ export default function Chatbot({ props }: { props: any }) {
   return (
     <div>
       <button
-        className="fixed bottom-4 right-4 rounded-full bg-stone-950 z-40 p-4 hover:bg-stone-800 transition-all cursor-pointer"
+        className="fixed bottom-4 right-4 size-16 rounded-full bg-stone-950 z-40  hover:bg-stone-800 transition-all cursor-pointer items-center flex justify-center"
         onClick={() => setOpenChat(!openChat)}
       >
         <svg

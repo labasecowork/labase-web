@@ -94,7 +94,7 @@ export const NewsletterForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex-col w-full h-full grid grid-cols-1 lg:grid-cols-2"
+      className="flex-col w-full h-full grid grid-cols-1 lg:grid-cols-2 bg-white"
     >
       <div>
         <img

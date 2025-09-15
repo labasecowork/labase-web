@@ -12,6 +12,7 @@ import {
 } from "@/components/pages/shared";
 import { SpacesSection as SpacesPriceSection } from "@/components/pages/espacios";
 import { espaciosMeta } from "@/config/meta";
+import { routes } from "@/config";
 ---
 
 <CoreLayout
@@ -42,6 +43,7 @@ import { espaciosMeta } from "@/config/meta";
     title="Diseñado para fluir contigo"
     description="¿Vienes a cerrar un trato, lanzar tu startup o simplemente tener un día productivo sin interrupciones? Nuestros espacios están pensados para adaptarse a tu ritmo. Aquí puedes encontrar concentración, colaboración y comodidad en el mismo lugar."
     button1="TESTIMONIOS"
+    button1Href={routes.testimonial}
     image="/images/espacios/base_de_mando/12.webp"
   />
   <BenefitsSection />

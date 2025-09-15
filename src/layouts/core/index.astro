@@ -3,6 +3,7 @@ import "@fontsource-variable/playfair-display";
 import "@/styles/global.css";
 import { Header, Footer } from "@/components/pages/shared";
 import Chatbot from "../../components/shared/chatbot/index.astro";
+import WhatsappButton from "../../components/shared/whatsapp_button/index.astro";
 
 const {
   title = "",
@@ -63,7 +64,7 @@ const {
     </main>
     
     <Footer role="contentinfo" aria-label="Site footer" />
-    
+    <WhatsappButton />
     <Chatbot role="complementary" aria-label="Chat assistance" />
   </body>
 </html>

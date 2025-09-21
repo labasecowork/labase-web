@@ -84,6 +84,15 @@ export const MobileMenu: React.FC = () => {
               ))}
 
               <a
+                href={routes.blog}
+                className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
+                role="menuitem"
+                tabIndex={0}
+              >
+                Nuestro Blog
+              </a>
+
+              <a
                 href={routes.emprendimiento}
                 className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
                 role="menuitem"

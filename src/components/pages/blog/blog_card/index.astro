@@ -3,17 +3,17 @@ import { Calendar, User } from "lucide-react";
 import { Image } from "@/components/ui";
 
 interface Props {
+  id: string;
   title: string;
   description: string;
   image: string;
   author: {
     name: string;
-    avatar: string;
     date: string;
   };
 }
 
-const { title, description, image, author } = Astro.props;
+const { id, title, description, image, author } = Astro.props;
 
 // Asegurarse de que la descripción no se muestre como HTML
 let cleanDescription = "";
@@ -29,10 +29,11 @@ const descriptionId = `${articleId}-description`;
 ---
 
 <article
-  class="bg-white overflow-hidden flex flex-col h-full shadow-sm hover:shadow-md transition-shadow"
+  class="bg-white overflow-hidden flex flex-col h-full shadow-sm hover:shadow-md transition-shadow cursor-pointer"
   role="article"
   aria-labelledby={titleId}
   aria-describedby={descriptionId}
+  onclick={`window.location.href='/blog/${id}'`}
 >
   <div class="relative">
     <Image
@@ -88,7 +89,7 @@ const descriptionId = `${articleId}-description`;
     </p>
 
     <a
-      href="#"
+      href={`/blog/${id}`}
       class="block mt-4 uppercase font-semibold text-stone-900 tracking-wide border-b border-stone-400 w-fit hover:text-stone-500 transition-all text-sm sm:text-base"
       aria-label={`Leer más sobre ${title}`}
     >

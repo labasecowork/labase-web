@@ -49,12 +49,12 @@ export const DesktopMenu: React.FC = () => {
       <div className="flex flex-col justify-center items-start px-36 w-full">
         <div className="flex flex-col space-y-10">
           <a
-            href={routes.about}
+            href={routes.blog}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-8 hover:ml-12"
             role="menuitem"
             tabIndex={0}
           >
-            Sobre Nosotros
+            Nuestro Blog
           </a>
           <a
             href={routes.arsenal}

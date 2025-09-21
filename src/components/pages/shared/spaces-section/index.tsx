@@ -325,7 +325,7 @@ export default function SpacesSection() {
   const slides = [
     {
       id: 1,
-      image: "/images/espacioss/hangar.webp",
+      image: "/images/espacios/el_hangar/3.webp",
       content: "EL",
       subcontent: "HANGAR",
       button: "DESATA TU CREATIVIDAD",
@@ -333,7 +333,7 @@ export default function SpacesSection() {
     },
     {
       id: 2,
-      image: "/images/espacioss/bmando.webp",
+      image: "/images/espacios/base_de_mando/4.webp",
       content: "BASE",
       subcontent: "DE MANDO",
       button: "TRABAJA CON TU EQUIPO",
@@ -341,7 +341,7 @@ export default function SpacesSection() {
     },
     {
       id: 3,
-      image: "/images/espacioss/boperativa.webp",
+      image: "/images/espacios/base_operativa/1.webp",
       content: "BASE",
       subcontent: "OPERATIVA",
       button: "OPTIMIZA TU PRODUCTIVIDAD",
@@ -349,7 +349,7 @@ export default function SpacesSection() {
     },
     {
       id: 4,
-      image: "/images/espacioss/bunker.webp",
+      image: "/images/espacios/bunkers/13.webp",
       content: "LOS",
       subcontent: "BUNKERS",
       button: "RESERVA TU ESPACIO PRIVADO",
@@ -357,7 +357,7 @@ export default function SpacesSection() {
     },
     {
       id: 5,
-      image: "/images/espacioss/brigada.webp",
+      image: "/images/espacios/la_brigada/6.webp",
       content: "LA",
       subcontent: "BRIGADA",
       button: "ÚNETE A LA COMUNIDAD",
@@ -365,7 +365,7 @@ export default function SpacesSection() {
     },
     {
       id: 6,
-      image: "/images/espacioss/recepcion.webp",
+      image: "/images/espacios/sala_de_recepcion/6.webp",
       content: "RECEPCIONES",
       subcontent: "",
       button: "ENTRA Y DESCUBRE MÁS",
@@ -373,7 +373,7 @@ export default function SpacesSection() {
     },
     {
       id: 8,
-      image: "/images/espacioss/unidades.webp",
+      image: "/images/espacios/unidades/7.webp",
       content: "UNIDADES",
       subcontent: "",
       button: "ENCUENTRA TU ESPACIO",
@@ -381,7 +381,7 @@ export default function SpacesSection() {
     },
     {
       id: 8,
-      image: "/images/espacioss/arsenal.webp",
+      image: "/images/espacios/arsenal/14.webp",
       content: "EL",
       subcontent: "ARSENAL",
       button: "ACCEDER A RECURSOS",
@@ -389,7 +389,7 @@ export default function SpacesSection() {
     },
     {
       id: 9,
-      image: "/images/espacioss/phoneboots.webp",
+      image: "/images/espacios/phone_booth/2.webp",
       content: "LOS",
       subcontent: "PHONEBOOTS",
       button: "RESERVA YA",
@@ -397,7 +397,7 @@ export default function SpacesSection() {
     },
     {
       id: 9,
-      image: "/images/espacioss/reserbas.webp",
+      image: "/images/espacios/reserva/8.webp",
       content: "RESERVAS",
       subcontent: "",
       button: "HAZ TU RESERVA",
@@ -536,9 +536,9 @@ export default function SpacesSection() {
             }}
             aria-label="Carrusel de espacios de La Base"
           >
-            {slides.map((slide, _) => (
+            {slides.map((slide, idx) => (
               <SwiperSlide
-                key={slide.id}
+                key={idx}
                 role="group"
                 aria-roledescription="slide"
                 aria-label={`${slide.content} ${slide.subcontent}`.trim()}

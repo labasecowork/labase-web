@@ -1,5 +1,6 @@
 ---
 import { DecorativeLine } from "@/components/pages/shared";
+import { Image } from "@/components/ui";
 ---
 
 <section class="py-24 bg-gray-50 text-stone-800">
@@ -23,24 +24,24 @@ import { DecorativeLine } from "@/components/pages/shared";
       class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 items-center mb-24"
     >
       <div class="px-12">
-        <img
+        <Image
+          client:only="react"
           src="/images/arsenal/cafes/menu1.webp"
           alt="Taza de café clásico"
-          class="w-full h-auto object-contain rounded-lg"
+          className="w-full h-auto object-contain rounded-lg"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
       </div>
       <div class="space-y-8">
         <div class="flex items-center gap-4">
-          <img
+          <Image
+            client:only="react"
             src="/images/arsenal/icon-menu.svg"
             alt="Icono de grano de café"
-            class="w-14 h-14"
+            className="w-14 h-14"
             loading="lazy"
             decoding="async"
-            fetchpriority="low"
           />
           <h3 class="text-4xl font-secondary text-[#82674E]">Clásicos</h3>
         </div>
@@ -114,24 +115,24 @@ import { DecorativeLine } from "@/components/pages/shared";
       class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 items-center mb-24"
     >
       <div class="lg:order-last px-12">
-        <img
+        <Image
+          client:only="react"
           src="/images/arsenal/cafes/menu2.webp"
           alt="Frappé refrescante"
-          class="w-full h-auto object-contain rounded-lg"
+          className="w-full h-auto object-contain rounded-lg"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
       </div>
       <div class="space-y-8">
         <div class="flex items-center gap-4">
-          <img
+          <Image
+            client:only="react"
             src="/images/arsenal/icon-menu.svg"
             alt="Icono de bebida helada"
-            class="w-14 h-14"
+            className="w-14 h-14"
             loading="lazy"
             decoding="async"
-            fetchpriority="low"
           />
           <h3 class="text-4xl font-secondary text-[#82674E]">Frapuchinos</h3>
         </div>
@@ -203,24 +204,24 @@ import { DecorativeLine } from "@/components/pages/shared";
     <!-- Sección Milkshake -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 items-center">
       <div class="px-12">
-        <img
+        <Image
+          client:only="react"
           src="/images/arsenal/cafes/menu1.webp"
           alt="Milkshake cremoso"
-          class="w-full h-auto object-contain rounded-lg"
+          className="w-full h-auto object-contain rounded-lg"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
       </div>
       <div class="space-y-8">
         <div class="flex items-center gap-4">
-          <img
+          <Image
+            client:only="react"
             src="/images/arsenal/icon-menu.svg"
             alt="Icono de milkshake"
-            class="w-14 h-14"
+            className="w-14 h-14"
             loading="lazy"
             decoding="async"
-            fetchpriority="low"
           />
           <h3 class="text-4xl font-secondary text-[#82674E]">Milkshake</h3>
         </div>

@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { Chat } from "./components";
+import type { ChatbotProps } from "./types";
 
-export default function Chatbot({ props }: { props: any }) {
-  const [openChat, setOpenChat] = useState(false);
+interface ChatbotMainProps {
+  props: ChatbotProps;
+}
+
+export default function Chatbot({ props }: ChatbotMainProps) {
+  const [openChat, setOpenChat] = useState<boolean>(false);
   return (
     <div>
       <button

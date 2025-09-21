@@ -6,6 +6,7 @@ export const contact = {
   phone: "+51 960 270 555",
   phone2: "+51 980 462 244",
   chatbot: "https://wa.me/51980462244",
+  admin: "https://wa.me/51960270555",
   email: "labase.developers@gmail.com",
   email2: "contactolabase10@gmail.com",
   schedule: "Lunes a sábados: 9:00am - 7:00pm",

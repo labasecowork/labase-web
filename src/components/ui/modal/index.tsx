@@ -57,7 +57,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-stone-400 hover:text-stone-100 transition-colors"
+            className="absolute top-4 right-4 text-stone-200 text-lg hover:text-stone-100 transition-colors"
             aria-label="Cerrar modal"
           >
             ✕

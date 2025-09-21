@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { accordionSections, secondaryLinks } from "../../../data";
 import { MobileFooter } from "../mobile-footer";
+import { routes, social } from "@/config";
 
 export const MobileMenu: React.FC = () => {
   const [expandedSection, setExpandedSection] = useState<number | null>(null);
@@ -73,14 +74,39 @@ export const MobileMenu: React.FC = () => {
               {secondaryLinks.map((link, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={link.href}
                   className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
                   role="menuitem"
                   tabIndex={0}
                 >
-                  {link}
+                  {link.label}
                 </a>
               ))}
+
+              <a
+                href={routes.emprendimiento}
+                className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
+                role="menuitem"
+                tabIndex={0}
+              >
+                Emprendimiento
+              </a>
+              <a
+                href={routes.arsenal}
+                className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
+                role="menuitem"
+                tabIndex={0}
+              >
+                El Arsenal
+              </a>
+              <a
+                href={social.linkedin.url}
+                className="block text-lg font-secondary text-stone-100 hover:opacity-80 transition-opacity"
+                role="menuitem"
+                tabIndex={0}
+              >
+                Bolsa de trabajo
+              </a>
             </div>
           </div>
         </div>

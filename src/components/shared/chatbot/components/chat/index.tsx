@@ -1,9 +1,11 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ChatInput, ChatMessage, TypingIndicator } from "../";
 import { initialMessages } from "../../data";
 import apiClient from "@/services";
+import type { ChatState, Message, ChatProps } from "../../types";
+import { AxiosError } from "axios";
 
-const getBotResponse = async (userMessage: string) => {
+const getBotResponse = async (userMessage: string): Promise<string> => {
   try {
     const response = await apiClient.post("/chatbot/send-message", {
       message: userMessage,
@@ -11,19 +13,26 @@ const getBotResponse = async (userMessage: string) => {
 
     return response.data.data;
   } catch (error) {
-    return error.response?.data || error.message;
+    if (error instanceof AxiosError) {
+      return (
+        error.response?.data?.message ||
+        error.message ||
+        "Error al procesar el mensaje"
+      );
+    }
+    return "Error al procesar el mensaje";
   }
 };
 
-export const Chat = ({ setOpenChat, props }) => {
-  const [chatState, setChatState] = useState({
+export const Chat: React.FC<ChatProps> = ({ setOpenChat, props }) => {
+  const [chatState, setChatState] = useState<ChatState>({
     messages: initialMessages,
     isTyping: false,
   });
 
-  const [isHome, setIsHome] = useState(true);
+  const [isHome, setIsHome] = useState<boolean>(true);
 
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -33,9 +42,9 @@ export const Chat = ({ setOpenChat, props }) => {
     scrollToBottom();
   }, [chatState.messages, chatState.isTyping]);
 
-  const handleSendMessage = async (content) => {
+  const handleSendMessage = async (content: string) => {
     setIsHome(false);
-    const userMessage = {
+    const userMessage: Message = {
       id: Date.now().toString(),
       content,
       sender: "user",
@@ -50,7 +59,7 @@ export const Chat = ({ setOpenChat, props }) => {
 
     const botResponseText = await getBotResponse(content);
 
-    const botMessage = {
+    const botMessage: Message = {
       id: (Date.now() + 1).toString(),
       content: botResponseText,
       sender: "bot",
@@ -65,7 +74,7 @@ export const Chat = ({ setOpenChat, props }) => {
   };
 
   return (
-    <div className="flex flex-col h-[600px] w-full max-w-md mx-auto  shadow-lg overflow-hidden bg-white fixed bottom-0 right-0 md:bottom-4 md:right-4 z-40 rounded-m">
+    <div className="flex flex-col h-[500px] w-full max-w-md mx-auto  shadow-lg overflow-hidden bg-white fixed bottom-0 right-0 md:bottom-4 md:right-4 z-40 rounded-m">
       <div className="p-2 bg-white flex items-center justify-between border-b border-stone-200">
         <div className="flex items-center ">
           {!isHome && (

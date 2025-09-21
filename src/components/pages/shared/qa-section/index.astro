@@ -1,4 +1,6 @@
 ---
+import { Image } from "@/components/ui";
+
 interface FAQ {
   question: string;
   answer: string;
@@ -103,13 +105,13 @@ const { faqs, description } = Astro.props;
             ))
           }
         </dl>
-        <img
+        <Image
+          client:only="react"
           src="/images/emprendimiento/5.jpg"
           alt="Personas colaborando en una reunión de trabajo"
-          class="w-full object-cover h-[600px] sm:h-full brightness-50"
+          className="w-full object-cover h-[600px] sm:h-full brightness-50"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
           role="img"
           aria-hidden="true"
         />

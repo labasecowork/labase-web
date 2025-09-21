@@ -8,5 +8,6 @@ export const routes = {
   policy: "/politicas",
   arsenal: "/arsenal",
   emprendimiento: "/emprendimiento",
+  suscribe: "/suscribirse",
   platform: "https://app.labase.pe",
 };

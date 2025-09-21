@@ -9,7 +9,7 @@ const {
   button1Href,
   button2Href,
 } = Astro.props;
-
+import { Image } from "@/components/ui";
 // Generar IDs únicos para los elementos relacionados
 const sectionId = `info-section-${Math.random().toString(36).substr(2, 9)}`;
 const titleId = `${sectionId}-title`;
@@ -23,10 +23,11 @@ const descriptionId = `${sectionId}-description`;
 >
   <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
     <div class="relative aspect-[4/5] overflow-hidden">
-      <img
+      <Image
+        client:only="react"
         src={image}
         alt={`Imagen ilustrativa para la sección: ${title}`}
-        class="w-full h-full object-cover"
+        className="w-full h-full object-cover"
         loading="lazy"
       />
     </div>

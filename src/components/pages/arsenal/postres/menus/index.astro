@@ -1,6 +1,7 @@
 ---
 // src/components/PostresSection.astro
 import { DecorativeLine } from "@/components/pages/shared";
+import { Image } from "@/components/ui";
 
 interface Postre {
   id: number;
@@ -133,13 +134,13 @@ const postres: Postre[] = [
           role="listitem"
         >
           <div class="relative mb-6">
-            <img
+            <Image
+              client:only="react"
               src={postre.image}
               alt={postre.alt}
-              class="size-32 sm:size-40 mx-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="size-32 sm:size-40 mx-auto object-contain transition-transform duration-300 hover:scale-105"
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
             />
           </div>
           <p class="text-2xl sm:text-3xl font-bold text-[#82674E] mb-4 tracking-wide">
@@ -194,13 +195,13 @@ const postres: Postre[] = [
           role="listitem"
         >
           <div class="relative mb-6">
-            <img
+            <Image
+              client:only="react"
               src={postre.image}
               alt={postre.alt}
-              class="size-32 sm:size-40 mx-auto object-contain transition-transform duration-300 hover:scale-105"
+              className="size-32 sm:size-40 mx-auto object-contain transition-transform duration-300 hover:scale-105"
               loading="lazy"
               decoding="async"
-              fetchpriority="low"
             />
           </div>
           <p class="text-2xl sm:text-3xl font-bold text-[#82674E] mb-4 tracking-wide">

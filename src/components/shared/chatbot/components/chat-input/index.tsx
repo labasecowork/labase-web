@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import type { ChatInputProps } from "../../types";
 
-export const ChatInput = ({ onSendMessage, disabled = false }) => {
-  const [input, setInput] = useState("");
+export const ChatInput: React.FC<ChatInputProps> = ({
+  onSendMessage,
+  disabled = false,
+}) => {
+  const [input, setInput] = useState<string>("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (input.trim() && !disabled) {
       onSendMessage(input);

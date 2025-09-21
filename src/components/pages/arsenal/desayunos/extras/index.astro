@@ -1,5 +1,6 @@
 ---
 import { DecorativeLine } from "@/components/pages/shared";
+import { Image } from "@/components/ui";
 
 interface Product {
   id: number;
@@ -91,13 +92,13 @@ for (let i = 0; i < products.length; i += 2) {
               <div class="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 items-center">
                 <div class="lg:col-span-1 order-1 lg:order-1">
                   <div class="relative overflow-hidden  aspect-square">
-                    <img
+                    <Image
+                      client:only="react"
                       src={row.left.image}
                       alt={row.left.alt}
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                       loading="lazy"
                       decoding="async"
-                      fetchpriority="low"
                     />
                   </div>
                 </div>
@@ -135,13 +136,13 @@ for (let i = 0; i < products.length; i += 2) {
                 {row.right && (
                   <div class="lg:col-span-1 order-3 lg:order-4">
                     <div class="relative overflow-hidden  aspect-square">
-                      <img
+                      <Image
+                        client:only="react"
                         src={row.right.image}
                         alt={row.right.alt}
-                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                         loading="lazy"
                         decoding="async"
-                        fetchpriority="low"
                       />
                     </div>
                   </div>

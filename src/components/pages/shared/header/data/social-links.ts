@@ -1,28 +1,28 @@
-import { routes } from "@/config";
+import { contact, routes, social } from "@/config";
 import type { ContactInfo } from "../types";
 
 export const socialLinksData = [
   {
-    href: "#",
+    href: social.facebook.url,
     label: "Síguenos en Facebook",
     platform: "facebook",
   },
   {
-    href: "#",
+    href: social.instagram.url,
     label: "Síguenos en Instagram",
     platform: "instagram",
   },
   {
-    href: "#",
-    label: "Síguenos en YouTube",
-    platform: "youtube",
+    href: social.tiktok.url,
+    label: "Síguenos en TikTok",
+    platform: "tiktok",
   },
 ];
 
 export const contactInfo: ContactInfo = {
-  phone: "+51 960 270 555",
-  email: "labasecowork@gmail.com",
-  address: "Jr. Tacna 234, piso 10, Huancayo",
+  phone: contact.phone,
+  email: contact.email,
+  address: contact.address1 + " " + contact.address2,
 };
 
 export const secondaryLinks = [

@@ -1,3 +1,7 @@
+---
+import { Image } from "@/components/ui";
+---
+
 <section class="py-32 relative overflow-hidden bg-white" id="menus">
   <div
     class="absolute inset-0 bg-center bg-contain opacity-10 bg-no-repeat"
@@ -89,13 +93,13 @@
 
       <!-- Imagen central -->
       <div class="flex justify-center">
-        <img
+        <Image
+          client:only="react"
           src="/images/arsenal/cafes/coffi-section.webp"
           alt="Bolsa de granos de café con granos sueltos"
-          class="max-w-xs md:max-w-sm"
+          className="max-w-xs md:max-w-sm"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
       </div>
 

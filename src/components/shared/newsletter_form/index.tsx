@@ -103,7 +103,7 @@ export const NewsletterForm = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="bg-white p-8 lg:p-24 flex flex-col items-center justify-center">
+      <div className="bg-white px-8 py-24 lg:px-24 lg:py-60 md:h-screen flex flex-col items-center justify-center">
         <div className="w-full max-w-lg mx-auto">
           <h2 className="text-3xl lg:text-4xl font-bold uppercase text-stone-900 mb-4 font-secondary">
             SÉ PARTE DE LA BASE

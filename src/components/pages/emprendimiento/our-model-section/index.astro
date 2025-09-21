@@ -1,3 +1,7 @@
+---
+import { Image } from "@/components/ui";
+---
+
 <section class="pt-12 md:pt-24" role="region" aria-labelledby="model-title">
   <div class="max-w-7xl mx-auto w-full px-4 sm:px-8">
     <p
@@ -30,13 +34,13 @@
         role="listitem"
         aria-labelledby="feature1-title"
       >
-        <img
+        <Image
+          client:only="react"
           src="/images/emprendimiento/1.jpg"
           alt="Equipo transformando ideas en proyectos concretos"
-          class="w-full h-full object-cover absolute inset-0 z-0"
+          className="w-full h-full object-cover absolute inset-0 z-0"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
         <div class="absolute inset-0 bg-stone-950/50 z-10" aria-hidden="true">
         </div>
@@ -62,13 +66,13 @@
         role="listitem"
         aria-labelledby="feature2-title"
       >
-        <img
+        <Image
+          client:only="react"
           src="/images/emprendimiento/2.JPG"
           alt="Desarrollo de producto mínimo viable (MVP)"
-          class="w-full h-full object-cover absolute inset-0 z-0"
+          className="w-full h-full object-cover absolute inset-0 z-0"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
         <div class="absolute inset-0 bg-stone-950/10 z-10" aria-hidden="true">
         </div>
@@ -94,13 +98,13 @@
         role="listitem"
         aria-labelledby="feature3-title"
       >
-        <img
+        <Image
+          client:only="react"
           src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
           alt="Equipo colaborativo trabajando en proyecto"
-          class="w-full h-full object-cover absolute inset-0 z-0"
+          className="w-full h-full object-cover absolute inset-0 z-0"
           loading="lazy"
           decoding="async"
-          fetchpriority="low"
         />
         <div class="absolute inset-0 bg-stone-950/60 z-10" aria-hidden="true">
         </div>

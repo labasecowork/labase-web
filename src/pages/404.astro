@@ -1,6 +1,7 @@
 ---
 import { CoreLayout } from "@/layouts";
 import { notFoundMeta } from "@/config/meta";
+import { Image } from "@/components/ui";
 ---
 
 <CoreLayout
@@ -57,10 +58,11 @@ import { notFoundMeta } from "@/config/meta";
         </div>
       </div>
       <div class="w-full h-full relative hidden md:block" aria-hidden="true">
-        <img
+        <Image
+          client:only="react"
           src="/images/espacios/sala_de_recepcion/8.webp"
           alt="Imagen decorativa de la página de error 404"
-          class="object-cover w-full h-full"
+          className="object-cover w-full h-full"
           loading="lazy"
           decoding="async"
         />

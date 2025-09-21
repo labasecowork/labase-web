@@ -19,6 +19,10 @@ export const menuItems: MenuItem[] = [
     href: routes.testimonial,
   },
   {
+    name: "EMPRENDIMIENTO",
+    href: routes.emprendimiento,
+  },
+  {
     name: "CONTACTO",
     href: routes.contact,
   },

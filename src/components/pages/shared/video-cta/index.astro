@@ -1,4 +1,6 @@
 ---
+import { Image } from "@/components/ui";
+
 interface Props {
   title: string;
   subtitle: string;
@@ -37,10 +39,11 @@ const descriptionId = `${sectionId}-description`;
       role="img"
       aria-label={imageAlt}
     >
-      <img
+      <Image
+        client:only="react"
         src={imageSrc}
         alt={imageAlt}
-        class="w-full h-full object-cover"
+        className="w-full h-full object-cover"
         loading="lazy"
       />
     </div>

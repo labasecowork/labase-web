@@ -1,4 +1,6 @@
 ---
+import { Image } from "@/components/ui";
+
 const { title, tag, button, image, description } = Astro.props;
 ---
 
@@ -9,13 +11,16 @@ const { title, tag, button, image, description } = Astro.props;
 >
   <div class="absolute inset-0 z-10 size-full bg-black/80" aria-hidden="true">
   </div>
-  <img
-    src={image}
-    alt={`Imagen de fondo para ${title}`}
-    loading="lazy"
-    class="absolute inset-0 -z-10 size-full object-cover"
-    aria-hidden="true"
-  />
+  <div class="absolute inset-0 -z-10 size-full object-cover">
+    <Image
+      client:only="react"
+      src={image}
+      alt={`Imagen de fondo para ${title}`}
+      loading="lazy"
+      className="absolute inset-0 -z-10 size-full object-cover"
+      aria-hidden="true"
+    />
+  </div>
 
   <div class="mx-auto max-w-7xl px-6 lg:px-8 relative z-20">
     <div class="mx-auto max-w-9xl py-32 sm:py-48 lg:py-72">

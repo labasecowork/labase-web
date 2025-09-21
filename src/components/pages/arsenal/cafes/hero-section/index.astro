@@ -1,5 +1,6 @@
 ---
 import NavigationButtons from "@/components/pages/shared/button-arrow/button";
+import { Image } from "@/components/ui";
 
 interface Props {
   currentSlide?: number;
@@ -15,12 +16,12 @@ const coffeeImages = [
 ---
 
 <section class="relative h-screen w-full overflow-hidden">
-  <img
+  <Image
+    client:only="react"
     src="/images/arsenal/cafes/hero.webp"
-    class="absolute top-0 left-0 w-full h-full object-cover"
+    className="absolute top-0 left-0 w-full h-full object-cover"
     loading="lazy"
     decoding="async"
-    fetchpriority="high"
   />
   <div class="absolute inset-0 bg-black/50"></div>
   <div
@@ -56,13 +57,13 @@ const coffeeImages = [
                 <div class="slider-content-wrap w-full h-full flex items-center justify-center p-4">
                   <div class="slider-content-align-center w-full h-full flex items-center justify-center">
                     <div class="slider-image-wrapper w-full h-full flex items-center justify-center">
-                      <img
+                      <Image
+                        client:only="react"
                         src={`/images/arsenal/cafes/${index + 1}.webp`}
                         alt={`Coffee ${index + 1}`}
-                        class="slider-image w-auto h-auto max-w-full max-h-full object-contain"
+                        className="slider-image w-auto h-auto max-w-full max-h-full object-contain"
                         loading={index === 0 ? "eager" : "lazy"}
                         decoding="async"
-                        fetchpriority="high"
                       />
                     </div>
                   </div>

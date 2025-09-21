@@ -1,7 +1,9 @@
-export const initialMessages = [
+import type { Message } from "../types";
+
+export const initialMessages: Message[] = [
   {
     id: "1",
-    content: "How can I help you?",
+    content: "¿Cómo puedo ayudarte?",
     sender: "bot",
     timestamp: new Date(),
   },

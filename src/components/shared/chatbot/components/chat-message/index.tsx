@@ -1,8 +1,9 @@
 import React from "react";
+import type { ChatMessageProps } from "../../types";
 
-export const ChatMessage = ({ message, props }) => {
+export const ChatMessage: React.FC<ChatMessageProps> = ({ message, props }) => {
   const isBot = message.sender === "bot";
-  function getFormattedTime() {
+  function getFormattedTime(): string {
     const now = new Date();
     const hours = now.getHours().toString().padStart(2, "0");
     const minutes = now.getMinutes().toString().padStart(2, "0");
@@ -23,7 +24,7 @@ export const ChatMessage = ({ message, props }) => {
               isBot ? "text-left" : "text-right"
             }`}
           >
-            {isBot ? "" : `${props.you}`} {getFormattedTime(message.timestamp)}
+            {isBot ? "" : `${props.you}`} {getFormattedTime()}
           </p>
           {isBot ? (
             <div

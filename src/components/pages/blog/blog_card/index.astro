@@ -1,5 +1,6 @@
 ---
 import { Calendar, User } from "lucide-react";
+import { Image } from "@/components/ui";
 
 interface Props {
   title: string;
@@ -34,10 +35,12 @@ const descriptionId = `${articleId}-description`;
   aria-describedby={descriptionId}
 >
   <div class="relative">
-    <img
+    <Image
+      client:only="react"
       src={image}
       alt={`Imagen destacada para el artículo: ${title}`}
-      class="w-full h-48 sm:h-56 md:h-68 object-cover brightness-90 inset-0"
+      className="w-full h-48 sm:h-56 md:h-68 object-cover brightness-90 inset-0"
+      client:only="react"
       loading="lazy"
     />
   </div>

@@ -1,3 +1,7 @@
+---
+import { Image } from "@/components/ui";
+---
+
 <section class="py-24 bg-gray-50 text-stone-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-16">
@@ -248,13 +252,13 @@
 
     <!-- Divider -->
     <div class="flex justify-center py-20">
-      <img
+      <Image
+client:only="react"
         src="/images/arsenal/line-decorative.svg"
         alt="Línea decorativa"
-        class="w-48"
+        className="w-48"
         loading="lazy"
         decoding="async"
-        fetchpriority="low"
       />
     </div>
 

@@ -17,6 +17,7 @@ const testimonials = [
   },
 ];
 
+import { Image } from "@/components/ui";
 const { image, opacity, video } = Astro.props;
 ---
 
@@ -49,9 +50,10 @@ const { image, opacity, video } = Astro.props;
         </div>
       ) : (
         <div class="absolute inset-0" aria-hidden="true">
-          <img
+          <Image
+            client:only="react"
             src={image}
-            class="w-full h-full object-cover"
+            className="w-full h-full object-cover"
             alt="Fondo decorativo de la sección de testimonios"
             loading="lazy"
           />

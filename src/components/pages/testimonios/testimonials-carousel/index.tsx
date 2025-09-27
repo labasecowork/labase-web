@@ -137,7 +137,12 @@ export default function TestimonialCarousel() {
         <Swiper
           modules={[Navigation, Pagination]}
           spaceBetween={0}
-          slidesPerView={4}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
+          }}
+          slidesPerView={1}
           initialSlide={2}
           centeredSlides={true}
           slideToClickedSlide={true}

@@ -73,12 +73,12 @@ export const DesktopMenu: React.FC = () => {
             Emprendimiento
           </a>
           <a
-            href={routes.testimonial}
+            href={routes.mentoring}
             className="text-5xl font-secondary text-stone-100 hover:text-stone-300 transition-all capitalize relative ml-2 hover:ml-6"
             role="menuitem"
             tabIndex={0}
           >
-            Testimonios
+            Mentoria
           </a>
           <a
             target="_blank"

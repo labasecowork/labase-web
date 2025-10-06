@@ -4,6 +4,7 @@ import "@/styles/global.css";
 import { Header, Footer } from "@/components/pages/shared";
 import Chatbot from "../../components/shared/chatbot/index.astro";
 import WhatsappButton from "../../components/shared/whatsapp_button/index.astro";
+import UpButton from "../../components/shared/up_button/index.astro";
 
 const {
   title = "",
@@ -72,6 +73,7 @@ const {
     
     <Footer role="contentinfo" aria-label="Site footer" />
     <WhatsappButton />
+    <UpButton />
     <Chatbot role="complementary" aria-label="Chat assistance" />
   </body>
 </html>

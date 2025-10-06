@@ -11,14 +11,14 @@ export default function Chatbot({ props }: ChatbotMainProps) {
   return (
     <div>
       <button
-        className="fixed bottom-4 right-4 size-16 rounded-full bg-stone-950 z-40  hover:bg-stone-800 transition-all cursor-pointer items-center flex justify-center"
+        className="fixed bottom-4 right-4 size-10 md:size-16 rounded-full bg-stone-950 z-40  hover:bg-stone-800 transition-all cursor-pointer items-center flex justify-center"
         onClick={() => setOpenChat(!openChat)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
           fill="currentColor"
-          className="size-6 text-white"
+          className="size-4 md:size-6 text-white"
         >
           <path
             fillRule="evenodd"

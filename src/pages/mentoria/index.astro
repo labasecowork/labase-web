@@ -10,8 +10,10 @@ import {
   IntroSection,
   ProcessSection,
   MentorsSection,
+  LogoCloudSection,
 } from "@/components/pages/mentoria";
 import { mentoriaMeta } from "@/config/meta";
+import { routes } from "@/config";
 
 const faqs = [
   {
@@ -65,14 +67,16 @@ const faqs = [
     title="Mentoría Profesional"
     tag="Acelera tu crecimiento"
     description="Conecta con expertos que han recorrido el camino que tú estás empezando. Recibe orientación personalizada y estrategias probadas para alcanzar tus objetivos más rápido."
-    image="/images/espacios/el_hangar/5.webp"
+    image="/images/emprendimiento/1.jpg"
+    buttonLink={routes.suscribe}
     button="COMENZAR AHORA"
   />
   <IntroSection />
-  <BenefitsSection />
+  <LogoCloudSection/>
   <ProcessSection />
   <MentorsSection client:load />
   <QaSection
+  image="/images/mentoria/3.jpg"
     faqs={faqs}
     description="Aquí puedes resolver todas tus dudas sobre nuestro programa de mentoría, como el proceso de matching con un mentor, la duración del programa, el contenido de cada sesión, si puedo cambiar de mentor durante el programa, las áreas de especialización de nuestros mentores, si ofrecen mentoría grupal además de individual, y cómo miden el éxito del programa de mentoría."
   />
@@ -81,6 +85,6 @@ const faqs = [
     title="Comienza tu transformación"
     description="No esperes más para dar el siguiente paso en tu carrera. Nuestros mentores están listos para acompañarte en tu proceso de crecimiento profesional y empresarial. Agenda tu primera sesión y descubre todo lo que puedes lograr con la guía adecuada."
     button="AGENDAR PRIMERA SESIÓN"
-    image="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+    image="/images/mentoria/6.jpg"
   />
 </CoreLayout>

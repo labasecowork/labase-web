@@ -9,9 +9,10 @@ interface FAQ {
 interface Props {
   faqs: FAQ[];
   description: string;
+  image?: string
 }
 
-const { faqs, description } = Astro.props;
+const { faqs, description, image } = Astro.props;
 ---
 
 <div role="region" aria-label="Sección de preguntas frecuentes">
@@ -107,7 +108,7 @@ const { faqs, description } = Astro.props;
         </dl>
         <Image
           client:only="react"
-          src="/images/emprendimiento/5.jpg"
+          src={image ?? "/images/emprendimiento/5.jpg"}
           alt="Personas colaborando en una reunión de trabajo"
           className="w-full object-cover h-[600px] sm:h-full brightness-50"
           loading="lazy"
